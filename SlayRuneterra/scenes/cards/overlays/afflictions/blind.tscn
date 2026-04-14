@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ducbbtm6b1iu5"]
+
+[ext_resource type="PackedScene" uid="uid://csn3oi8dtn86q" path="res://SlayRuneterra/scenes/vfx/ui/card/afflictions/blind/vfx_ui_card_affliction_blind.tscn" id="1_a2jhx"]
+
+[node name="Blind" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="vfx_ui_card_affliction_blind" parent="." instance=ExtResource("1_a2jhx")]
+layout_mode = 1

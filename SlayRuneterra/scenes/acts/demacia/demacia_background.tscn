@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://y5qmvuhmdcnf"]
+
+[ext_resource type="Script" uid="uid://cs6ihfcvgwxhv" path="res://DemaciaActCode/Nodes/NCustomCombatBackground.cs" id="1_mwytj"]
+[ext_resource type="Script" uid="uid://cgysb3rxsvb1f" path="res://DemaciaActCode/Nodes/NCustomBgLayerDebug.cs" id="3_pxyi6"]
+
+[node name="DemaciaBackground" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_mwytj")
+
+[node name="Layer_00" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("3_pxyi6")
+
+[node name="Layer_01" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("3_pxyi6")
+
+[node name="Layer_02" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("3_pxyi6")
+
+[node name="Layer_03" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("3_pxyi6")
+
+[node name="Layer_04" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("3_pxyi6")
+
+[node name="Layer_05" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("3_pxyi6")
+
+[node name="Foreground" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("3_pxyi6")

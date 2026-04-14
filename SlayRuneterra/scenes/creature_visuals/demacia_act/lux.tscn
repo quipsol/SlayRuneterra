@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://rjo7u6oiq0pn"]
+
+[ext_resource type="Script" uid="uid://n3b0o07s7gff" path="res://SlayRuneterraCode/Nodes/NCustomCreatureVisuals.cs" id="1_tqrkt"]
+[ext_resource type="Texture2D" uid="uid://b42ycxf321ong" path="res://SlayRuneterra/images/monster/lux.png" id="2_tqrkt"]
+
+[node name="Galio" type="Node2D"]
+script = ExtResource("1_tqrkt")
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="TextureRect" type="TextureRect" parent="Visuals"]
+offset_left = -132.0
+offset_top = -389.0
+offset_right = 132.0
+offset_bottom = -1.0
+texture = ExtResource("2_tqrkt")
+expand_mode = 1
+flip_h = true
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -131.0
+offset_top = -388.0
+offset_right = 133.0
+offset_bottom = -2.0
+mouse_filter = 2
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -209)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, -409)

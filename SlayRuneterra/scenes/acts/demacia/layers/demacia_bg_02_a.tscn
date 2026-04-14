@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd50tfcuvk4nj"]
+
+[ext_resource type="Texture2D" uid="uid://day4qgbxmpn4y" path="res://DemaciaAct/images/acts/demacia_act/rooms/test_blue.png" id="1_hbfwu"]
+
+[node name="DemaciaBg02A" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -124.0
+offset_right = -115.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hbfwu")
+expand_mode = 1

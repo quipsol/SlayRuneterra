@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj5rlhus4scsg"]
+
+[ext_resource type="Script" uid="uid://n3b0o07s7gff" path="res://SlayRuneterraCode/Nodes/NCustomCreatureVisuals.cs" id="1_y7pte"]
+[ext_resource type="Texture2D" uid="uid://d24ymudidujyg" path="res://SlayRuneterra/images/monster/silverwing_vanguard.png" id="2_tkpki"]
+
+[node name="Galio" type="Node2D"]
+script = ExtResource("1_y7pte")
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="TextureRect" type="TextureRect" parent="Visuals"]
+offset_left = -125.0
+offset_top = -400.0
+offset_right = 125.0
+offset_bottom = -80.0
+texture = ExtResource("2_tkpki")
+expand_mode = 1
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -125.0
+offset_top = -400.0
+offset_right = 125.0
+offset_bottom = -80.0
+mouse_filter = 2
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -209)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, -400)

@@ -1,0 +1,45 @@
+{
+  "SLAYRUNETERRA-VANGUARD_CHARGER_POWER.title": "Brothers in Arms",
+  "SLAYRUNETERRA-VANGUARD_CHARGER_POWER.description": "Gain [gold]Strength[/gold] whenever another Vanguard takes damage.",
+  "SLAYRUNETERRA-VANGUARD_CHARGER_POWER.smartDescription": "Gain {Amount} [gold]Strength[/gold] whenever another [blue]Vanguard[/blue] takes damage.",
+
+
+
+  "SLAYRUNETERRA-DEFINITELY_NOT_FLUTTER_POWER.title": "Flutter",
+  "SLAYRUNETERRA-DEFINITELY_NOT_FLUTTER_POWER.description": "Its flutter",
+  "SLAYRUNETERRA-DEFINITELY_NOT_FLUTTER_POWER.smartDescription": "flutter",
+
+  "SLAYRUNETERRA-ILLUMINATION_POWER.description": "Next time you take damage from [gold]Lux[/gold], take damage.",
+  "SLAYRUNETERRA-ILLUMINATION_POWER.smartDescription": "The next time [gold]Lux[/gold] attacks you, if you take damage you take [blue]{Amount}[/blue] additional damage.",
+  "SLAYRUNETERRA-ILLUMINATION_POWER.title": "Illumination",
+
+
+  "SLAYRUNETERRA-LUX_ILLUMINATION_POWER.description": "When damaging enemies, apply [gold]Illumination[/gold] to themm",
+  "SLAYRUNETERRA-LUX_ILLUMINATION_POWER.smartDescription": "When [gold]Lux[/gold] damages a creature she applies [blue]{Amount}[/blue] [gold]Illumination[/gold].",
+  "SLAYRUNETERRA-LUX_ILLUMINATION_POWER.title": "Lux's Illumination",
+
+  "SLAYRUNETERRA-SUMMON_GALIO_POWER.description": "Summons [gold]Galio[/gold] when HP reaches threshhold",
+  "SLAYRUNETERRA-SUMMON_GALIO_POWER.smartDescription": "Summons [gold]Galio[/gold] once HP goes below [blue]{Amount}[/blue].",
+  "SLAYRUNETERRA-SUMMON_GALIO_POWER.title": "Beacon",
+
+  "SLAYRUNETERRA-BLIND_POWER.description": "The next card you draw is obfuscated.",
+  "SLAYRUNETERRA-BLIND_POWER.smartDescription": "Obfuscate the next [blue]{Amount}[/blue] cards you draw.",
+  "SLAYRUNETERRA-BLIND_POWER.title": "Blind",
+
+
+  "SLAYRUNETERRA-QUINN_ENRAGE_POWER.description": "[gold]Quinn[/gold] gains [blue]2[/blue] [gold]Ritual[/gold] when [gold]Valor[/gold] dies.",
+  "SLAYRUNETERRA-QUINN_ENRAGE_POWER.smartDescription": "[gold]Quinn[/gold] gains [blue]2[/blue] [gold]Ritual[/gold] when [gold]Valor[/gold] dies.",
+  "SLAYRUNETERRA-QUINN_ENRAGE_POWER.title": "Enrage",
+
+  "SLAYRUNETERRA-VALOR_ENRAGE_POWER.description": "[gold]Valor[/gold] gains [blue]3[/blue] [gold]Strength[/gold] when [gold]Quinn[/gold] dies.",
+  "SLAYRUNETERRA-VALOR_ENRAGE_POWER.smartDescription": "[gold]Valor[/gold] gains [blue]3[/blue] [gold]Strength[/gold] when [gold]Quinn[/gold] dies.",
+  "SLAYRUNETERRA-VALOR_ENRAGE_POWER.title": "Enrage",
+
+  "SLAYRUNETERRA-DIVINE_INTERVENTION_POWER.title": "Divine Intervention",
+  "SLAYRUNETERRA-DIVINE_INTERVENTION_POWER.description": "At the beginning of your turn, deal damage to ALL enemies",
+  "SLAYRUNETERRA-DIVINE_INTERVENTION_POWER.smartDescription": "At the beginning of your turn, deal [blue]{Amount:diff()}[/blue] damage to ALL enemies.",
+
+
+  "BASELIB-CUSTOM_TEMPORARY_POWER_MODEL.UP.smartDescription": "Gain [blue]{Amount:abs()}[/blue] [gold]{TemporaryPowerTitle}[/gold] until the end of your {UntilEndOfOtherSideTurn:cond:|enemies }turn.{Repeat:cond:>0?\\nLasts for [blue]{Repeat:diff()}[/blue] additional {Repeat:plural:turn|turns}.|}",
+  "BASELIB-CUSTOM_TEMPORARY_POWER_MODEL.DOWN.smartDescription": "Lose [blue]{Amount:abs()}[/blue] [gold]{TemporaryPowerTitle}[/gold] until the end of your {UntilEndOfOtherSideTurn:cond:|enemies }turn.{Repeat:cond:>0?\\nLasts for [blue]{Repeat:diff()}[/blue] additional {Repeat:plural:turn|turns}.|}"
+}

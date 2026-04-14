@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://d24ibgfqfcg2m"]
+
+[ext_resource type="Shader" uid="uid://cu7yu27wvn632" path="res://SlayRuneterra/shaders/vfx/ui/card/afflictions/blind/vfx_ui_card_affliction_blind_main_shader.gdshader" id="1_77mfk"]
+[ext_resource type="Texture2D" uid="uid://cplnh57dbk6o2" path="res://SlayRuneterra/images/vfx/ui/card/afflictions/blind/blind_noise.tres" id="2_nhfkc"]
+
+[resource]
+shader = ExtResource("1_77mfk")
+shader_parameter/noise_tex = ExtResource("2_nhfkc")
+shader_parameter/scroll_speed = Vector2(0.001, 0.025)

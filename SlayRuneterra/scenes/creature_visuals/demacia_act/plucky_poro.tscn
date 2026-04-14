@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlylhqsfvcr4s"]
+
+[ext_resource type="Script" uid="uid://n3b0o07s7gff" path="res://SlayRuneterraCode/Nodes/NCustomCreatureVisuals.cs" id="1_ci88s"]
+[ext_resource type="Texture2D" uid="uid://cw8vlu1mkkkgg" path="res://SlayRuneterra/images/monster/plucky_poro.png" id="2_ci88s"]
+
+[node name="PluckyPoro" type="Node2D"]
+script = ExtResource("1_ci88s")
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="TextureRect" type="TextureRect" parent="Visuals"]
+offset_left = -85.0
+offset_top = -178.0
+offset_right = 85.0
+offset_bottom = -1.0
+texture = ExtResource("2_ci88s")
+expand_mode = 1
+flip_h = true
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -86.0
+offset_top = -176.0
+offset_right = 86.0
+offset_bottom = -2.0
+mouse_filter = 2
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -91)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, -230)

@@ -1,0 +1,206 @@
+[gd_scene load_steps=26 format=3 uid="uid://bf5nv6nxbwkyh"]
+
+[ext_resource type="Texture2D" uid="uid://gm7078sgf4fw" path="res://SlayRuneterra/images/events/ancients/kayle/kayle_splashart.png" id="1_6o6sx"]
+[ext_resource type="Texture2D" uid="uid://cte6flgh03t8u" path="res://SlayRuneterra/images/vfx/monsters/the_insatiable/sand_cloud.png" id="2_g3yns"]
+[ext_resource type="Texture2D" uid="uid://odoorf4o5pv" path="res://SlayRuneterra/images/vfx/small_star.png" id="3_skcgy"]
+[ext_resource type="Shader" uid="uid://qobk3bqdi07e" path="res://SlayRuneterra/shaders/vfx/vfx_water_reflection_post.gdshader" id="4_bga4c"]
+[ext_resource type="Texture2D" uid="uid://ci3fntxmlvjta" path="res://SlayRuneterra/images/vfx/torus_gradient.png" id="5_bga4c"]
+[ext_resource type="Texture2D" uid="uid://c3c8jwaa1jn30" path="res://SlayRuneterra/images/placeholder/100_100/white.png" id="6_dcdob"]
+[ext_resource type="Texture2D" uid="uid://c5auen2e5xvue" path="res://SlayRuneterra/images/vfx/circle_gradient.png" id="7_dcdob"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_20ph4"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_bga4c"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dcdob"]
+curve = SubResource("Curve_bga4c")
+
+[sub_resource type="Curve" id="Curve_x4q1m"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -192.733), 0.0, 0.0, 0, 0, Vector2(1, -128.563), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lsvsx"]
+curve = SubResource("Curve_x4q1m")
+
+[sub_resource type="Gradient" id="Gradient_1rowx"]
+offsets = PackedFloat32Array(0, 0.231, 0.71, 0.998)
+colors = PackedColorArray(0, 0, 0, 1, 0.5803922, 0.5803922, 0.5803922, 1, 0.41568628, 0.41568628, 0.41568628, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v53d6"]
+gradient = SubResource("Gradient_1rowx")
+
+[sub_resource type="Curve" id="Curve_x6bo4"]
+_data = [Vector2(0, 0.338), 0.0, 0.0, 0, 0, Vector2(0.546, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8v00x"]
+curve = SubResource("Curve_x6bo4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_167il"]
+particle_flag_disable_z = true
+angle_min = 15.0000105
+angle_max = 15.0000105
+angle_curve = SubResource("CurveTexture_lsvsx")
+gravity = Vector3(50, 0, 0)
+scale_min = 4.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_8v00x")
+color = Color(0.5686275, 0.7254902, 0.7607843, 1)
+color_ramp = SubResource("GradientTexture1D_v53d6")
+alpha_curve = SubResource("CurveTexture_dcdob")
+anim_offset_max = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l2223"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_kc5bq"]
+offsets = PackedFloat32Array(0, 0.259, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lsvsx"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1rowx"]
+noise = SubResource("FastNoiseLite_lsvsx")
+seamless = true
+normalize = false
+seamless_blend_skirt = 0.293
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4diuf"]
+shader = ExtResource("4_bga4c")
+shader_parameter/noise = SubResource("NoiseTexture2D_1rowx")
+shader_parameter/mask = ExtResource("5_bga4c")
+shader_parameter/speed = 0.02500000118749
+shader_parameter/strength = 0.01500000071249
+shader_parameter/direction = Vector2(-1, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x4q1m"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_lsvsx"]
+_data = [Vector2(0, 0.4), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0.4), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_v53d6"]
+offsets = PackedFloat32Array(0, 0.412, 0.992)
+colors = PackedColorArray(0.34901962, 0.34901962, 0.34901962, 1, 1, 1, 1, 1, 0.34901962, 0.34901962, 0.34901962, 1)
+
+[node name="Kayle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 128.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -300.0
+offset_top = -20.0
+offset_right = 2130.0
+offset_bottom = 1414.0
+texture = ExtResource("1_6o6sx")
+expand_mode = 2
+
+[node name="fog3 from Neow" type="GPUParticles2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_20ph4")
+position = Vector2(1874, 1302)
+rotation = 3.1206484
+amount = 5
+texture = ExtResource("2_g3yns")
+lifetime = 10.0
+preprocess = 100.0
+fixed_fps = 0
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+local_coords = true
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_167il")
+
+[node name="stars" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_l2223")
+position = Vector2(1128, 619)
+amount = 10
+texture = ExtResource("3_skcgy")
+lifetime = 5.0
+preprocess = 5.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(1500, 800)
+spread = 180.0
+gravity = Vector2(-1, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_max = 2.0
+color = Color(0.8862745, 0.73333335, 0.2784314, 0.44313726)
+color_ramp = SubResource("Gradient_kc5bq")
+
+[node name="fluid orb" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4diuf")
+position = Vector2(1311, 429.00003)
+rotation = 0.21412915
+scale = Vector2(20, 20)
+texture = ExtResource("6_dcdob")
+
+[node name="sword glow" type="Node2D" parent="."]
+position = Vector2(-6.1035156e-05, -6.1035156e-05)
+
+[node name="sword glow 1" type="CPUParticles2D" parent="sword glow"]
+material = SubResource("CanvasItemMaterial_x4q1m")
+position = Vector2(835, 811.00006)
+rotation = -0.6274091
+scale = Vector2(0.8986405, 0.49105525)
+amount = 2
+texture = ExtResource("7_dcdob")
+lifetime = 3.0
+local_coords = true
+spread = 20.0
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_lsvsx")
+color = Color(0.7, 0.41836667, 0.20300001, 0.4862745)
+color_ramp = SubResource("Gradient_v53d6")
+
+[node name="sword glow 2" type="CPUParticles2D" parent="sword glow"]
+material = SubResource("CanvasItemMaterial_x4q1m")
+position = Vector2(728, 697.00006)
+rotation = 0.5217955
+scale = Vector2(0.7498848, 0.40517253)
+amount = 2
+texture = ExtResource("7_dcdob")
+lifetime = 3.0
+local_coords = true
+spread = 20.0
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_lsvsx")
+color = Color(0.7, 0.41836667, 0.20300001, 0.4862745)
+color_ramp = SubResource("Gradient_v53d6")
+
+[node name="sword glow 3" type="CPUParticles2D" parent="sword glow"]
+material = SubResource("CanvasItemMaterial_x4q1m")
+position = Vector2(943.0001, 850.0001)
+rotation = 0.5901878
+scale = Vector2(0.55152416, 0.2539468)
+amount = 2
+texture = ExtResource("7_dcdob")
+lifetime = 3.0
+local_coords = true
+spread = 20.0
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_lsvsx")
+color = Color(0.7, 0.41836667, 0.20300001, 0.4862745)
+color_ramp = SubResource("Gradient_v53d6")

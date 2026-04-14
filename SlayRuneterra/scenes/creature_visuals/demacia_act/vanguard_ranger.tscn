@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://ktqt15v5ip2g"]
+
+[ext_resource type="Script" uid="uid://n3b0o07s7gff" path="res://SlayRuneterraCode/Nodes/NCustomCreatureVisuals.cs" id="1_s8mml"]
+[ext_resource type="Texture2D" uid="uid://v0ur4v3isrha" path="res://SlayRuneterra/images/monster/vanguard_lancer.png" id="2_s8mml"]
+
+[node name="Galio" type="Node2D"]
+script = ExtResource("1_s8mml")
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="TextureRect" type="TextureRect" parent="Visuals"]
+offset_left = -125.0
+offset_top = -320.0
+offset_right = 125.0
+texture = ExtResource("2_s8mml")
+expand_mode = 1
+flip_h = true
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -125.0
+offset_top = -320.0
+offset_right = 125.0
+mouse_filter = 2
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -209)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, -400)

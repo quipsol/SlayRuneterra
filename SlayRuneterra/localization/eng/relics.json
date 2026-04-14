@@ -1,0 +1,48 @@
+{
+  "SLAYRUNETERRA-PETRICITE_CLUMP.title": "Petricite Clump",
+  "SLAYRUNETERRA-PETRICITE_CLUMP.description": "During the next combat, the first [gold]Skill[/gold] you play each turn costs {energyPrefix:energyIcons(1)} more.",
+  "SLAYRUNETERRA-PETRICITE_CLUMP.flavor": "",
+  
+
+  "SLAYRUNETERRA-REJUVENATE.title": "Rejuvenate",
+  "SLAYRUNETERRA-REJUVENATE.description": "The first time you enter a [gold]Rest Site[/gold], Heal to Max HP",
+  "SLAYRUNETERRA-REJUVENATE.flavor": "",
+
+
+  "SLAYRUNETERRA-ESSENCE_OF_AN_ANGEL.title": "Essence of an Angel",
+  "SLAYRUNETERRA-ESSENCE_OF_AN_ANGEL.description": "Upon pickup, add [blue]1[/blue] [gold]Apotheosis[/gold] to your [gold]Deck[/gold].",
+  "SLAYRUNETERRA-ESSENCE_OF_AN_ANGEL.flavor": "",
+  
+  "SLAYRUNETERRA-JUDGEMENT.title": "Judgement",
+  "SLAYRUNETERRA-JUDGEMENT.description": "At the beginning of combat gain [gold]Vigor[/gold] equal to the amount of [gold]Relics[/gold] you have.{IsEvent: ([blue]{CalculatedVigor:diff()}[/blue])|{HasOwner:\n\nGrants [blue]{CalculatedVigor:diff()}[/blue] [gold]Vigor[/gold].|}}",
+  "SLAYRUNETERRA-JUDGEMENT.flavor": "",
+  
+  "SLAYRUNETERRA-RING_OF_CARNAGE.title": "Ring of Carnage",
+  "SLAYRUNETERRA-RING_OF_CARNAGE.description": "If you only played [red]attacks[/red] this turn, gain {energyPrefix:energyIcons(1)} at the start of next turn.",
+  "SLAYRUNETERRA-RING_OF_CARNAGE.flavor": "",
+
+  "SLAYRUNETERRA-DIVINE_IDOL.title": "Divine Idol",
+  "SLAYRUNETERRA-DIVINE_IDOL.description": "Upon pickup, add {InRun:[blue]1[/blue] [gold]{IsMultiplayer:Greater |}Divine Intervention[/gold]|an [gold]Intervention[/gold]} to your [gold]Deck[/gold].",
+  "SLAYRUNETERRA-DIVINE_IDOL.flavor": "",
+
+  "SLAYRUNETERRA-DIVINE_FEATHER.title": "Divine Feather",
+  "SLAYRUNETERRA-DIVINE_FEATHER.description": "Upon pickup, add [blue]1[/blue] [gold]Celestial Blessing[/gold] to your [gold]Deck[/gold].",
+  "SLAYRUNETERRA-DIVINE_FEATHER.flavor": "",
+
+  "SLAYRUNETERRA-SWORD_OF_JUDGEMENT.title": "Sword of Judgement",
+  "SLAYRUNETERRA-SWORD_OF_JUDGEMENT.description": "After you break an enemies [gold]Block[/gold], apply [blue]2[/blue] [gold]Weak[/gold] and [gold]Vulnerable[/gold].",
+  "SLAYRUNETERRA-SWORD_OF_JUDGEMENT.flavor": "",
+
+  "SLAYRUNETERRA-DIVINE_HELMET.title": "Divine Helmet",
+  "SLAYRUNETERRA-DIVINE_HELMET.description": "You can not lose more than [blue]{DamageCap:diff()}[/blue] HP at once.",
+  "SLAYRUNETERRA-DIVINE_HELMET.flavor": "",
+  
+  
+  
+  
+  
+  
+  "SLAYRUNETERRA-EMPTY.title": "",
+  "SLAYRUNETERRA-EMPTY.description": "",
+  "SLAYRUNETERRA-EMPTY.flavor": ""
+}

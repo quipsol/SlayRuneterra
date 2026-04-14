@@ -1,0 +1,173 @@
+[gd_scene load_steps=15 format=3 uid="uid://ckmmvrfgex4xt"]
+
+[ext_resource type="Texture2D" uid="uid://c56d41jl416ix" path="res://SlayRuneterra/images/acts/demacia_act/rest_site/demacia_rest_site_00.png" id="1_cfd0c"]
+[ext_resource type="Texture2D" uid="uid://cy7fmgqcg7pwf" path="res://SlayRuneterra/images/acts/demacia_act/rest_site/demacia_rest_site_llog.png" id="2_7sehp"]
+[ext_resource type="Texture2D" uid="uid://btds8mhlomp18" path="res://SlayRuneterra/images/acts/demacia_act/rest_site/demacia_rest_site_rlog.png" id="3_ckpvo"]
+[ext_resource type="Texture2D" uid="uid://ok363k710lp1" path="res://SlayRuneterra/images/acts/demacia_act/rest_site/demacia_rest_site_fire.png" id="4_rn33w"]
+[ext_resource type="Texture2D" uid="uid://cxm3g0s6c4xus" path="res://SlayRuneterra/images/acts/demacia_act/rest_site/demacia_rest_site_llog_highlight.png" id="5_2q1mq"]
+[ext_resource type="Shader" uid="uid://dha6uacukby2y" path="res://SlayRuneterra/scenes/rest_site/rest_site_light_shader.gdshader" id="5_rn33w"]
+[ext_resource type="Texture2D" uid="uid://oulpindrcslb" path="res://SlayRuneterra/scenes/rest_site/light_ramp_gradient.tres" id="6_2q1mq"]
+[ext_resource type="Texture2D" uid="uid://ewsbyfmyb3k2" path="res://SlayRuneterra/images/acts/demacia_act/rest_site/demacia_rest_site_cutter_left.png" id="6_38713"]
+[ext_resource type="Texture2D" uid="uid://pn3vv3qia483" path="res://SlayRuneterra/images/acts/demacia_act/rest_site/demacia_rest_site_cutter_right.png" id="7_o55ba"]
+[ext_resource type="Texture2D" uid="uid://d36ixkh837osk" path="res://SlayRuneterra/images/acts/demacia_act/rest_site/demacia_rest_site_rlog_highlight.png" id="8_38713"]
+
+[sub_resource type="Curve" id="Curve_o55ba"]
+_limits = [0.99, 1.02, 0.0, 1.0]
+_data = [Vector2(0, 0.99067414), 0.0, 0.0, 0, 0, Vector2(0.090277776, 1.02), 0.0, 0.0, 0, 0, Vector2(0.20138888, 0.9930337), 0.0, 0.0, 0, 0, Vector2(0.2986111, 1.0193259), 0.0, 0.0, 0, 0, Vector2(0.39583337, 0.99202245), 0.0, 0.0, 0, 0, Vector2(0.5138889, 1.02), 0.0, 0.0, 0, 0, Vector2(0.6111111, 0.99134827), 0.0, 0.0, 0, 0, Vector2(0.65972227, 1.02), 0.0, 0.0, 0, 0, Vector2(0.8125, 0.9923595), 0.0, 0.0, 0, 0, Vector2(0.8472222, 1.02), 0.0, 0.0, 0, 0, Vector2(1, 0.99), 0.0, 0.0, 0, 0]
+point_count = 11
+
+[sub_resource type="Curve" id="Curve_gfcv2"]
+_limits = [0.98, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.98966295), 0.0, 0.0, 0, 0, Vector2(0.055555552, 1), 0.0, 0.0, 0, 0, Vector2(0.111111104, 0.99033713), 0.0, 0.0, 0, 0, Vector2(0.15972224, 1), 0.0, 0.0, 0, 0, Vector2(0.24305558, 0.99011236), 0.0, 0.0, 0, 0, Vector2(0.27083334, 1), 0.0, 0.0, 0, 0, Vector2(0.31944448, 0.99033713), 0.0, 0.0, 0, 0, Vector2(0.37500003, 1), 0.0, 0.0, 0, 0, Vector2(0.42361113, 0.99101126), 0.0, 0.0, 0, 0, Vector2(0.5208334, 1), 0.0, 0.0, 0, 0, Vector2(0.5555556, 0.99191016), 0.0, 0.0, 0, 0, Vector2(0.6597222, 1), 0.0, 0.0, 0, 0, Vector2(0.69444454, 0.99033713), 0.0, 0.0, 0, 0, Vector2(0.73611116, 0.99910116), 0.0, 0.0, 0, 0, Vector2(0.7847223, 0.99056184), 0.0, 0.0, 0, 0, Vector2(0.8333334, 1), 0.0, 0.0, 0, 0, Vector2(0.88888896, 0.98988765), 0.0, 0.0, 0, 0, Vector2(0.91666675, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.98966295), 0.0, 0.0, 0, 0]
+point_count = 19
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_02x0t"]
+width = 128
+curve_x = SubResource("Curve_o55ba")
+curve_y = SubResource("Curve_gfcv2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_shvbm"]
+shader = ExtResource("5_rn33w")
+shader_parameter/pixel_offset = Vector2(1, 2)
+shader_parameter/noise_texture = SubResource("CurveXYZTexture_02x0t")
+shader_parameter/ramp_texture = ExtResource("6_2q1mq")
+
+[node name="DemaciaRestSite" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="RestSiteBG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -444.0
+offset_top = -138.0
+offset_right = 2320.0
+offset_bottom = 1158.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cfd0c")
+expand_mode = 1
+
+[node name="RestSiteLLog" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 508.0
+offset_top = 546.0
+offset_right = 826.0
+offset_bottom = 750.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7sehp")
+expand_mode = 1
+
+[node name="RestSiteRLog" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 980.0
+offset_top = 540.0
+offset_right = 1345.0
+offset_bottom = 732.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ckpvo")
+expand_mode = 1
+
+[node name="RestSiteFireLogs" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 802.0
+offset_top = 646.0
+offset_right = 1021.0
+offset_bottom = 815.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_rn33w")
+expand_mode = 1
+
+[node name="RestSiteLighting" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -65.0
+offset_top = -65.0
+offset_right = -65.0
+offset_bottom = -65.0
+
+[node name="RestSiteLLog2" type="TextureRect" parent="RestSiteLighting"]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 613.0
+offset_right = 892.0
+offset_bottom = 817.0
+texture = ExtResource("2_7sehp")
+expand_mode = 1
+
+[node name="RestSiteRLog2" type="TextureRect" parent="RestSiteLighting"]
+layout_mode = 0
+offset_left = 1045.0
+offset_top = 605.0
+offset_right = 1410.0
+offset_bottom = 797.0
+texture = ExtResource("3_ckpvo")
+expand_mode = 1
+
+[node name="LLogHighlight" type="Sprite2D" parent="RestSiteLighting"]
+self_modulate = Color(0.8901961, 0.85882354, 0.21176471, 0.10980392)
+material = SubResource("ShaderMaterial_shvbm")
+position = Vector2(746, 730)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("5_2q1mq")
+
+[node name="RLogHighlight" type="Sprite2D" parent="RestSiteLighting"]
+self_modulate = Color(0.8901961, 0.85882354, 0.21176471, 0.10980392)
+material = SubResource("ShaderMaterial_shvbm")
+position = Vector2(1208, 722)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("8_38713")
+
+[node name="RestSiteForegroundLeft" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -443.0
+offset_top = -138.0
+offset_right = 542.0
+offset_bottom = 1155.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_38713")
+expand_mode = 1
+
+[node name="RestSiteForegroundRight" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1288.0
+offset_top = -138.0
+offset_right = 2319.0
+offset_bottom = 1156.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_o55ba")
+expand_mode = 1
