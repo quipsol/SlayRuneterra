@@ -28,8 +28,7 @@ public class Kayle : SlayRuneterraAncientModel
                 MakePool(
                             AncientOption<DivineFeather>(),
                             AncientOption<DivineHelmet>(),
-                            AncientOption<DivineIdol>() // Singeplayer
-                            //AncientOption<DivineIdol>() // Multiplayer (intangible to all, no damage)
+                            AncientOption<DivineIdol>() 
                 ),
                 // Judgement, Sword of Judgement, 
                 MakePool(
