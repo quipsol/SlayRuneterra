@@ -1,0 +1,12 @@
+{
+  "id": "SlayRuneterra",
+  "name": "SlayRuneterra",
+  "author": "[img]res://images/packed/sprite_fonts/silent_energy_icon.png[/img]",
+  "proper_author": "Quipsol",
+  "description": "Eventually replaces all acts (events, encounters, ancients, bosses) with custom stuff",
+  "version": "v0.0.1",
+  "has_pck": true,
+  "has_dll": true,
+  "dependencies": ["BaseLib"],
+  "affects_gameplay": true
+}

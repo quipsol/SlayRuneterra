@@ -1,0 +1,28 @@
+﻿Current Goals:
+1. Make a fully working Act 1
+2. Make a fully working Ancient (Kayle and Soraka)
+
+General:
+1. Add Acts with default enemies/etc for:
+ - Act 1: Noxus
+ - Act 2: Freljord
+ - Act 2: Ionia
+ - Act 3: Shurima
+ - Act 3: Void
+2. Events (for starters have 8 general events)
+3. Make it so events are only chosen from the Mods events pool
+4. Add more Ancients
+5. Make sure only Ancients from this mod can be chosen
+6. Special Act Hazard System
+7. Clean up patch junk
+
+
+Demacia Act:
+1. Rework Blind to affect all cards
+2. Figure out how to replace treasure room background
+3. more events (game has around 10 per act)
+4. Balancing
+5. Issue with Vulnerable being applied in the middle of the enemies turn
+6. Clarity (i.e.: When does Garen hit hard)
+7. Rework enemy attack order. Example Garen: Garen has so much hp, it is unlikely he will be killed during his strong attacks.
+   So there is no reason for him to DefendIntent before that, because the player likely must block anyway so they cant damage him.
