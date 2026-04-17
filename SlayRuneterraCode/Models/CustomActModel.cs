@@ -17,7 +17,7 @@ public abstract class CustomActModel : ActModel, ICustomModel, IHookReceiver
     
     public virtual string? CustomBackgroundScenePath => null; // tscn
     public virtual string? CustomMapTopBgPath => null; // png
-    public virtual string? CustomMapMidBgPath => null; // png
+    public virtual string? CustomMapMidBgPath => null; // png // TODO: Make this part repeatable for larger maps if its not done already
     public virtual string? CustomMapBotBgPath => null; // png
     public virtual string? CustomRestSiteBackgroundPath => null; // tscn
 
@@ -40,7 +40,16 @@ public abstract class CustomActModel : ActModel, ICustomModel, IHookReceiver
         return list;
     }
     public virtual string? GetBackgroundAssetFgLayerPath(Rng rng) { return rng.NextItem(LayerPaths.GetValueOrDefault("foreground") ?? [""]) ?? ""; }
-    
+
+    /// <summary>
+    /// Returns a tuple of (ScenePath, BackgroundLayerPaths, ForegroundLayerPath)
+    /// </summary>
+    /// <param name="rng"></param>
+    /// <returns></returns>
+    public virtual (string?, List<string>, string?) GetBackgroundAssetPaths(Rng rng)
+    {
+        return (GetBackgroundAssetScenePath(rng), GetBackgroundAssetBgLayerPaths(rng), GetBackgroundAssetFgLayerPath(rng));
+    }
     
     
 }
@@ -110,33 +119,3 @@ class CustomActRestSiteBackgroundPath
         return false;
     }
 }
-
-
-[HarmonyPatch(typeof(ActModel), nameof(ActModel.GenerateBackgroundAssets))]
-public class CustomActGenerateBackgroundAssets
-{
-    [HarmonyPrefix]
-    public static bool Prefix(ActModel __instance, Rng rng, ref BackgroundAssets __result)
-    {
-        if (__instance is not CustomActModel customActModel)
-            return true;
-        __result = CreateBackgroundAssets(customActModel, rng);
-        return false;
-    }
-    
-    private static BackgroundAssets CreateBackgroundAssets(CustomActModel customActModel, Rng rng)
-    {
-        var instance = (BackgroundAssets)FormatterServices.GetUninitializedObject(typeof(BackgroundAssets));
-        
-        var bgSceneField = AccessTools.Field(instance.GetType(), "<BackgroundScenePath>k__BackingField");
-        var bgLayersField = AccessTools.Field(instance.GetType(), "<BgLayers>k__BackingField");
-        var fgLayerField = AccessTools.Field(instance.GetType(), "<FgLayer>k__BackingField");
-        
-        bgSceneField.SetValue(instance, customActModel.GetBackgroundAssetScenePath(rng));
-        bgLayersField.SetValue(instance, customActModel.GetBackgroundAssetBgLayerPaths(rng));
-        fgLayerField.SetValue(instance, customActModel.GetBackgroundAssetFgLayerPath(rng));
-        
-        return instance;
-    }
-}
-

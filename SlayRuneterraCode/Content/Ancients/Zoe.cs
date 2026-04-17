@@ -27,7 +27,7 @@ public class Zoe : SlayRuneterraAncientModel
 
     public override string? CustomBackgroundScenePath => "res://SlayRuneterra/scenes/events/background_scenes/zoe.tscn";
 
-    public override bool IsValidForAct(ActModel act) => SlayRuneterraConfig.IsEnabled;
+    public override bool IsValidForAct(ActModel act) => false;//SlayRuneterraConfig.IsEnabled;
 
 
     

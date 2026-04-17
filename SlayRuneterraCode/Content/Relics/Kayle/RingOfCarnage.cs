@@ -17,7 +17,7 @@ namespace SlayRuneterra.Content.Relics.Kayle;
 
 
 [Pool(typeof(EventRelicPool))]
-public class RingOfCarnage : SlayRuneterraRelic
+public class RingOfCarnage : SlayRuneterraRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 

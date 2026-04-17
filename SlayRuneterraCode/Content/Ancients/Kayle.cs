@@ -30,14 +30,15 @@ public class Kayle : SlayRuneterraAncientModel
                             AncientOption<DivineHelmet>(),
                             AncientOption<DivineIdol>() 
                 ),
-                // Judgement, Sword of Judgement, 
+                // Flail of Judgement, Sword of Judgement, Spear of Judgement
                 MakePool(
-                            AncientOption<Judgement>(weight: 20),
-                            AncientOption<RingOfCarnage>(),
-                            AncientOption<EssenceOfAnAngel>()
+                            AncientOption<SpearOfJustice>(),
+                            AncientOption<SwordOfJustice>(),
+                            AncientOption<FlailOfJustice>()
                 ),
                 // Essence of an Angel, Ring of Carnage,
                 MakePool(
-                            AncientOption<DivineIdol>()
+                            AncientOption<RingOfCarnage>(),
+                            AncientOption<EssenceOfAnAngel>()
                 ));
 }

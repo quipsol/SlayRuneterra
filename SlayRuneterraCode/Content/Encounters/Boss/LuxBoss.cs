@@ -5,10 +5,11 @@ using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
 using SlayRuneterra.Content.Acts;
 using SlayRuneterra.Content.Monsters;
+using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Encounters.Boss;
 
-public class LuxBoss() : CustomEncounterModel(RoomType.Boss)
+public class LuxBoss() : SlayRuneterraEncounterModel(RoomType.Boss)
 {
     public override BackgroundAssets? CustomEncounterBackground(ActModel parentAct, Rng rng)
     {

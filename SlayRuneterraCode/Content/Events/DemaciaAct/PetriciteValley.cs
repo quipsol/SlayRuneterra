@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 using SlayRuneterra.Content.Relics;
 using SlayRuneterra.Models;
 
-namespace SlayRuneterra.Content.Events.Demacia;
+namespace SlayRuneterra.Content.Events.DemaciaAct;
 
 public class PetriciteValley : SlayRuneterraEventModel
 {
@@ -20,7 +20,7 @@ public class PetriciteValley : SlayRuneterraEventModel
     public override string? CustomBackgroundScenePath => null;
     public override string? CustomVfxPath => "";
 
-    public override bool IsAllowed(RunState runState)
+    public override bool IsAllowed(IRunState runState)
     {
         return SlayRuneterraConfig.IsEnabled;
     }

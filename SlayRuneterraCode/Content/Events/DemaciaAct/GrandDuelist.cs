@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 using SlayRuneterra.Models;
 
-namespace SlayRuneterra.Content.Events.Demacia;
+namespace SlayRuneterra.Content.Events.DemaciaAct;
 
 public class GrandDuelist : SlayRuneterraEventModel
 {
@@ -19,7 +19,7 @@ public class GrandDuelist : SlayRuneterraEventModel
     public override string? CustomBackgroundScenePath => null;
     public override string? CustomVfxPath => "";
 
-    public override bool IsAllowed(RunState runState)
+    public override bool IsAllowed(IRunState runState)
     {
         return SlayRuneterraConfig.IsEnabled;
     }

@@ -3,10 +3,11 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 using SlayRuneterra.Content.Acts;
 using SlayRuneterra.Content.Monsters;
+using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Encounters.Normal;
 
-public class VanguardPatrolNormal(): CustomEncounterModel(RoomType.Monster)
+public class VanguardPatrolNormal(): SlayRuneterraEncounterModel(RoomType.Monster)
 {
     public override bool IsValidForAct(ActModel act) => act is Demacia;
     public override bool IsWeak => false;

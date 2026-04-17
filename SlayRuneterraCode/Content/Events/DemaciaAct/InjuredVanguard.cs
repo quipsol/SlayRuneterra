@@ -13,9 +13,10 @@ using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
+using SlayRuneterra.Content.Acts;
 using SlayRuneterra.Models;
 
-namespace SlayRuneterra.Content.Events.Demacia;
+namespace SlayRuneterra.Content.Events.DemaciaAct;
 
 public class InjuredVanguard : SlayRuneterraEventModel
 {
@@ -23,9 +24,11 @@ public class InjuredVanguard : SlayRuneterraEventModel
     public override string? CustomBackgroundScenePath => null;
     public override string? CustomVfxPath => "";
 
-    public override bool IsAllowed(RunState runState)
+    public override bool IsAllowed(IRunState runState)
     {
-        return  SlayRuneterraConfig.IsEnabled && runState.Players.All(player => player.Creature.CurrentHp > this.DynamicVars.HpLoss.BaseValue || player.Deck.Cards.Any(card => card is { IsUpgradable: true, IsUpgraded: false }));
+        if (!SlayRuneterraConfig.IsEnabled) return false;
+        if (runState.Act is not Demacia) return false;
+        return  runState.Players.All(player => player.Creature.CurrentHp > this.DynamicVars.HpLoss.BaseValue || player.Deck.Cards.Any(card => card is { IsUpgradable: true, IsUpgraded: false }));
     }
 
     private bool HasEnoughHealth()

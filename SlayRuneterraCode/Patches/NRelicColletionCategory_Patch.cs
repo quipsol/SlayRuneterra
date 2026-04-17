@@ -60,7 +60,7 @@ public static class RelicCollectionTranspiler
             return codes;
         
         // Find the stloc that stores to the actModelList local
-        CodeInstruction stlocInstruction = null;
+        CodeInstruction? stlocInstruction = null;
         for (int i = blockStart; i < errorStringIndex; i++)
         {
             if (codes[i].opcode == OpCodes.Stloc_S &&

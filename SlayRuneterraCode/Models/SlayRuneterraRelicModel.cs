@@ -5,7 +5,7 @@ using SlayRuneterra.Extensions;
 
 namespace SlayRuneterra.Models;
 
-public abstract class SlayRuneterraRelic : CustomRelicModel
+public abstract class SlayRuneterraRelicModel : CustomRelicModel
 {
     //DemaciaAct/images/relics
     public override string PackedIconPath

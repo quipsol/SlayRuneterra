@@ -39,7 +39,7 @@ public class Lux : SlayRuneterraMonsterModel
     private int IlluminationIncrease => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
     private int BaseIllumination => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
 
-    private MoveState _beaconOfHopeState;
+    private MoveState? _beaconOfHopeState = null;
     
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
@@ -106,7 +106,7 @@ public class Lux : SlayRuneterraMonsterModel
     
     private async Task PerformPrismaticBarrier(IReadOnlyList<Creature> targets)
     {
-        foreach (Creature creature in  this.Creature.CombatState!.GetTeammatesOf(this.Creature).Where((Creature c) => c.IsAlive))
+        foreach (Creature creature in  Creature.CombatState!.GetTeammatesOf(Creature).Where(c => c.IsAlive))
         {
             await CreatureCmd.GainBlock(creature, new BlockVar(PrismaticBarrierBlock, ValueProp.Move), null);
         }
@@ -115,12 +115,12 @@ public class Lux : SlayRuneterraMonsterModel
     
     private async Task PerformBeaconOfHope(IReadOnlyList<Creature> targets)
     {
-        var creature = await CreatureCmd.Add(ModelDb.Monster<Galio>().ToMutable(), this.CombatState, this.Creature.Side, "galio");
+        await CreatureCmd.Add(ModelDb.Monster<Galio>().ToMutable(), this.CombatState, this.Creature.Side, "galio");
     }
     
     private async Task PerformIllumination(IReadOnlyList<Creature> targets)
     {
-        await PowerCmd.Apply<LuxIlluminationPower>(this.Creature, IlluminationIncrease, this.Creature, null);
+        await PowerCmd.Apply<LuxIlluminationPower>(Creature, IlluminationIncrease, this.Creature, null);
     }
 
     #endregion State Methods
@@ -134,7 +134,7 @@ public class Lux : SlayRuneterraMonsterModel
 
     public void SetStateToBeaconOfHope()
     {
-        SetMoveImmediate(_beaconOfHopeState);
+        SetMoveImmediate(_beaconOfHopeState!);
     }
     
     public override async Task AfterAddedToRoom()

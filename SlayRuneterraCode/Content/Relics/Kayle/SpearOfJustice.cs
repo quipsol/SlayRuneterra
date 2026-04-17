@@ -15,7 +15,7 @@ using SlayRuneterra.Utils.CustomVars;
 namespace SlayRuneterra.Content.Relics.Kayle;
 
 [Pool(typeof(EventRelicPool))]
-public class Judgement : SlayRuneterraRelic
+public class SpearOfJustice : SlayRuneterraRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
@@ -25,7 +25,7 @@ public class Judgement : SlayRuneterraRelic
     [
                 new CalculationBaseVar(0M),
                 new CalculationExtraVar(1M),
-                new CalculatedRelicVar("CalculatedVigor").WithMultiplier(relic => relic.Owner.Relics.Count)
+                new CalculatedRelicVar("CalculatedVigor").WithMultiplier(relic => relic.Owner.Relics.Count * 2)
     ];
 
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)

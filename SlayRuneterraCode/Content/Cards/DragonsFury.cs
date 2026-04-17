@@ -13,24 +13,23 @@ namespace SlayRuneterra.Content.Cards;
 
 
 [Pool(typeof(EventCardPool))]
-public class DragonsFury() : SlayRuneterraCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class DragonsFury() : SlayRuneterraCardModel(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
-        new PowerVar<DragonsFuryTemporaryStrengthPower>(4),
-        new PowerVar<ArtifactPower>(2)
+        new PowerVar<DragonsFuryStrengthPower>(3)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>(), HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await PowerCmd.Apply<DragonsFuryTemporaryStrengthPower>(Owner.Creature, DynamicVars[nameof(DragonsFuryTemporaryStrengthPower)].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<DragonsFuryStrengthPower>(Owner.Creature, DynamicVars[nameof(DragonsFuryStrengthPower)].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars[nameof(DragonsFuryTemporaryStrengthPower)].UpgradeValueBy(2);
+        DynamicVars[nameof(DragonsFuryStrengthPower)].UpgradeValueBy(2);
     }
 }

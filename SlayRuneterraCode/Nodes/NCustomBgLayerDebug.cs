@@ -5,8 +5,7 @@ using MegaCrit.Sts2.Core.Helpers;
 namespace SlayRuneterra.Nodes;
 
 [Tool]
-[GlobalClass]
-public partial class NCustomBgLayerDebug : NBgLayerDebug
+public partial class NCustomBgLayerDebug : Control
 {
 	public new enum LayerVisibility
 {

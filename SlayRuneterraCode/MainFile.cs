@@ -3,7 +3,9 @@ using BaseLib.Config;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Saves.Runs;
+using SlayRuneterra.Models;
 
 namespace SlayRuneterra;
 
@@ -19,7 +21,6 @@ public partial class MainFile : Node
         Godot.Bridge.ScriptManagerBridge.LookupScriptsInAssembly(Assembly.GetExecutingAssembly());
         
         Harmony harmony = new(ModId);
-
         harmony.PatchAll();
 
 
@@ -40,7 +41,7 @@ public partial class MainFile : Node
                             BindingFlags.NonPublic)
                 .Any(p => p.GetCustomAttribute<SavedPropertyAttribute>() != null))
             {
-                cacheMethod.Invoke(null, [type]);
+                cacheMethod!.Invoke(null, [type]);
             }
         }
     }

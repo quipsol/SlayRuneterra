@@ -11,7 +11,7 @@ namespace SlayRuneterra.Content.Relics.Kayle;
 
 
 [Pool(typeof(EventRelicPool))]
-public class DivineFeather : SlayRuneterraRelic
+public class DivineFeather : SlayRuneterraRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 

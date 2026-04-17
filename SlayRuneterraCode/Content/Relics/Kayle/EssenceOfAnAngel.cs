@@ -12,7 +12,7 @@ using SlayRuneterra.Models;
 namespace SlayRuneterra.Content.Relics.Kayle;
 
 [Pool(typeof(EventRelicPool))]
-public class EssenceOfAnAngel : SlayRuneterraRelic
+public class EssenceOfAnAngel : SlayRuneterraRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 

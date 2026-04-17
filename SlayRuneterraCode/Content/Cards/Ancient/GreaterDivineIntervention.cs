@@ -13,7 +13,7 @@ using SlayRuneterra.Models;
 namespace SlayRuneterra.Content.Cards.Ancient;
 
 [Pool(typeof(ColorlessCardPool))]
-public class GreaterDivineIntervention() : SlayRuneterraCard(3, CardType.Skill, CardRarity.Ancient, TargetType.Self)
+public class GreaterDivineIntervention() : SlayRuneterraCardModel(3, CardType.Skill, CardRarity.Ancient, TargetType.Self)
 {
     public override string BetaPortraitPath => "res://SlayRuneterra/images/card_portraits/colorless_ancient_placeholder.png";
     public override string PortraitPath => "res://SlayRuneterra/images/card_portraits/colorless_ancient_placeholder.png";
@@ -33,7 +33,7 @@ public class GreaterDivineIntervention() : SlayRuneterraCard(3, CardType.Skill, 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        foreach (var player in RunState.Players)
+        foreach (var player in RunState!.Players)
         {
             if(player.Creature.IsAlive)
                 await PowerCmd.Apply<IntangiblePower>(player.Creature, DynamicVars[nameof(IntangiblePower)].BaseValue, Owner.Creature, this);

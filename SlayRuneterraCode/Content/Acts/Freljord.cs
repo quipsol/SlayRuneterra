@@ -1,6 +1,7 @@
 ﻿using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
@@ -10,12 +11,13 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Timeline.Epochs;
 using MegaCrit.Sts2.Core.Unlocks;
+using MegaCrit.Sts2.Core.ValueProps;
 using SlayRuneterra.Content.Ancients;
 using SlayRuneterra.Content.Encounters.Boss;
 using SlayRuneterra.Content.Encounters.Elite;
 using SlayRuneterra.Content.Encounters.Normal;
 using SlayRuneterra.Content.Encounters.Weak;
-using SlayRuneterra.Content.Events.Demacia;
+using SlayRuneterra.Content.Events.DemaciaAct;
 using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Acts;
@@ -139,8 +141,8 @@ public class Freljord : CustomActModel
         int unknownCount = MapPointTypeCounts.StandardRandomUnknownCount(mapRng) - 1;
         return new MapPointTypeCounts(unknownCount, restCount);
     }
-
     
+
     public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState)
     {
         if (combatState.RunState.Act is not Freljord)
@@ -148,6 +150,12 @@ public class Freljord : CustomActModel
         
         if (side != CombatSide.Player || combatState.RoundNumber > 1)
             return;
-        await PowerCmd.Apply<WeakPower>(combatState.Creatures, 1, null,  null);
+
+        foreach (var creature in combatState.Creatures)
+        {
+            WeakPower? power = await PowerCmd.Apply<WeakPower>(creature, 1, null,  null);
+            if(creature.IsPlayer)
+                power!.SkipNextDurationTick = false;
+        }
     }
 }

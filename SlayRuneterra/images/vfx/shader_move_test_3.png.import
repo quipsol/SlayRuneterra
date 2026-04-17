@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6n5ubyvt8ydo"
-path="res://.godot/imported/demacia_00.png-0189fe521683ed6bd7f1470d0697f5bb.ctex"
+uid="uid://cvg0hrp7bga76"
+path="res://.godot/imported/shader_move_test_3.png-cb97d2b7c3c7851c28d158e105ccc486.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SlayRuneterra/images/acts/demacia/rooms/demacia_00.png"
-dest_files=["res://.godot/imported/demacia_00.png-0189fe521683ed6bd7f1470d0697f5bb.ctex"]
+source_file="res://SlayRuneterra/images/vfx/shader_move_test_3.png"
+dest_files=["res://.godot/imported/shader_move_test_3.png-cb97d2b7c3c7851c28d158e105ccc486.ctex"]
 
 [params]
 

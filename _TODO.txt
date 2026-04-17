@@ -16,7 +16,6 @@ General:
 6. Special Act Hazard System
 7. Clean up patch junk
 
-
 Demacia Act:
 1. Rework Blind to affect all cards
 2. Figure out how to replace treasure room background

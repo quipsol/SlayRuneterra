@@ -4,7 +4,7 @@
   "SLAYRUNETERRA-TWIN_BITE.description": "Deal {Damage:diff()} damage twice.\\nApply {WeakPower:diff()} [gold]Weak[/gold].\\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
 
   "SLAYRUNETERRA-DRAGONS_FURY.title": "Dragons Fury",
-  "SLAYRUNETERRA-DRAGONS_FURY.description": "Gain {DragonsFuryTemporaryStrengthPower:diff()} [gold]Strength[/gold] until the end of your next turn.",
+  "SLAYRUNETERRA-DRAGONS_FURY.description": "Gain {DragonsFuryStrengthPower:diff()} [gold]Strength[/gold] until the end of your next turn.",
 
   "SLAYRUNETERRA-CELESTIAL_BLESSING.title": "Celestial Blessing",
   "SLAYRUNETERRA-CELESTIAL_BLESSING.description": "Heal {Heal:diff()} HP.\nDraw {Cards:diff()} cards.",
@@ -13,6 +13,9 @@
   "SLAYRUNETERRA-DIVINE_INTERVENTION.description": "Gain {IntangiblePower:diff()} [gold]Intangible[/gold].\nAt the beginning of your next turn, deal {DivineInterventionPower:diff()} damage to ALL enemies.",
 
   "SLAYRUNETERRA-GREATER_DIVINE_INTERVENTION.title": "Greater Divine Intervention",
-  "SLAYRUNETERRA-GREATER_DIVINE_INTERVENTION.description": "ALL allies gain {IntangiblePower:diff()} [gold]Intangible[/gold].\nAt the beginning of your next turn, deal {DivineInterventionPower:diff()} damage to ALL enemies."
+  "SLAYRUNETERRA-GREATER_DIVINE_INTERVENTION.description": "ALL allies gain {IntangiblePower:diff()} [gold]Intangible[/gold].\nAt the beginning of your next turn, deal {DivineInterventionPower:diff()} damage to ALL enemies.",
+
+  "SLAYRUNETERRA-MY_GRAND_FINALE.title": "Dagger Spray???",
+  "SLAYRUNETERRA-MY_GRAND_FINALE.description": "Test"
   
 }

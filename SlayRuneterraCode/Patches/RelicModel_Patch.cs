@@ -23,8 +23,8 @@ public class RelicModel_DynamicDescription_Patch
         bool hasOwner = owner is not null;
         resVar.Add("HasOwner", hasOwner);
         resVar.Add("IsEvent", false);
-        resVar.Add("InRun", hasOwner && owner!.RunState is not null); // Should theoretically always be equal to "HasOwner"
-        resVar.Add("IsMultiplayer", hasOwner && owner!.RunState.Players.Count > 1);
+        resVar.Add("InRun", hasOwner); // currently there is no need to distinct between IsRun and HasOwner
+        resVar.Add("IsMultiplayer", hasOwner && owner!.RunState!.Players.Count > 1);
         __result = resVar;
 
         
@@ -58,8 +58,8 @@ public class RelicModel_DynamicEventDescription_Patch
         bool hasOwner = owner is not null;
         resVar.Add("HasOwner", hasOwner);
         resVar.Add("IsEvent", true);
-        resVar.Add("InRun", hasOwner && owner!.RunState is not null);
-        resVar.Add("IsMultiplayer", hasOwner && owner!.RunState.Players.Count > 1);
+        resVar.Add("InRun", hasOwner); // currently there is no need to distinct between IsRun and HasOwner
+        resVar.Add("IsMultiplayer", hasOwner && owner!.RunState!.Players.Count > 1);
         __result = resVar;
         
         if (hasOwner)

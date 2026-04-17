@@ -14,7 +14,7 @@ using SlayRuneterra.Models;
 namespace SlayRuneterra.Content.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class PetriciteClump() : SlayRuneterraRelic
+public class PetriciteClump() : SlayRuneterraRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Event;
     public override bool ShowCounter => true;

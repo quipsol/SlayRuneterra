@@ -13,15 +13,15 @@ using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Runs;
 using SlayRuneterra.Models;
 
-namespace SlayRuneterra.Content.Events.Demacia;
+namespace SlayRuneterra.Content.Events.DemaciaAct;
 
 public class AncientOak : SlayRuneterraEventModel
 {
     public override string? CustomInitialPortraitPath => "res://SlayRuneterra/images/events/amalgamator.png";
     public override string? CustomBackgroundScenePath => null;
     public override string? CustomVfxPath => "";
-
-    public override bool IsAllowed(RunState runState)
+    
+    public override bool IsAllowed(IRunState runState)
     {
         return SlayRuneterraConfig.IsEnabled;
     }
@@ -42,13 +42,10 @@ public class AncientOak : SlayRuneterraEventModel
 
     private async Task CloseYourEyes()
     {
-        List<CardModel?> chosenCards = (await CardSelectCmd.FromDeckForTransformation(Owner, new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, 2))).ToList();
+        List<CardModel> chosenCards = (await CardSelectCmd.FromDeckForTransformation(Owner!, new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, 2))).ToList();
         foreach (CardModel? chosenCard in chosenCards)
         {
-            if (chosenCard == null)
-                MainFile.Logger.Warn("AncientOak event was unable to find upgradeable card.");
-            else
-                await CardCmd.TransformToRandom(chosenCard, Rng, CardPreviewStyle.EventLayout);
+            await CardCmd.TransformToRandom(chosenCard, Rng, CardPreviewStyle.EventLayout);
         }
         
         

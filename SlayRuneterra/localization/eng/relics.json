@@ -9,13 +9,18 @@
   "SLAYRUNETERRA-REJUVENATE.flavor": "",
 
 
-  "SLAYRUNETERRA-ESSENCE_OF_AN_ANGEL.title": "Essence of an Angel",
-  "SLAYRUNETERRA-ESSENCE_OF_AN_ANGEL.description": "Upon pickup, add [blue]1[/blue] [gold]Apotheosis[/gold] to your [gold]Deck[/gold].",
-  "SLAYRUNETERRA-ESSENCE_OF_AN_ANGEL.flavor": "",
-  
-  "SLAYRUNETERRA-JUDGEMENT.title": "Judgement",
-  "SLAYRUNETERRA-JUDGEMENT.description": "At the beginning of combat gain [gold]Vigor[/gold] equal to the amount of [gold]Relics[/gold] you have.{IsEvent: ([blue]{CalculatedVigor:diff()}[/blue])|{HasOwner:\n\nGrants [blue]{CalculatedVigor:diff()}[/blue] [gold]Vigor[/gold].|}}",
-  "SLAYRUNETERRA-JUDGEMENT.flavor": "",
+  "SLAYRUNETERRA-FLAIL_OF_JUSTICE.title": "Flail of Judgement",
+  "SLAYRUNETERRA-FLAIL_OF_JUSTICE.description": "After you break an enemies [gold]Block[/gold], apply [blue]{WeakPower:diff()}[/blue] [gold]Weak[/gold] and [blue]{VulnerablePower:diff()}[/blue] [gold]Vulnerable[/gold].",
+  "SLAYRUNETERRA-FLAIL_OF_JUSTICE.flavor": "",
+
+
+  "SLAYRUNETERRA-SPEAR_OF_JUSTICE.title": "Spear of Justice",
+  "SLAYRUNETERRA-SPEAR_OF_JUSTICE.description": "At the beginning of combat gain [gold]Vigor[/gold] equal to twice the amount of [gold]Relics[/gold] you have.{IsEvent: ([blue]{CalculatedVigor:diff()}[/blue])|{HasOwner:\n\nGrants [blue]{CalculatedVigor:diff()}[/blue] [gold]Vigor[/gold].|}}",
+  "SLAYRUNETERRA-SPEAR_OF_JUSTICE.flavor": "",
+
+  "SLAYRUNETERRA-SWORD_OF_JUSTICE.title": "Sword Of Justice",
+  "SLAYRUNETERRA-SWORD_OF_JUSTICE.description": "Whenever you play an [red]Attack[/red] gain {SwordOfJusticeStrengthPower:diff()} Strength until the end of your turn.",
+  "SLAYRUNETERRA-SWORD_OF_JUSTICE.flavor": "",
   
   "SLAYRUNETERRA-RING_OF_CARNAGE.title": "Ring of Carnage",
   "SLAYRUNETERRA-RING_OF_CARNAGE.description": "If you only played [red]attacks[/red] this turn, gain {energyPrefix:energyIcons(1)} at the start of next turn.",
@@ -29,19 +34,18 @@
   "SLAYRUNETERRA-DIVINE_FEATHER.description": "Upon pickup, add [blue]1[/blue] [gold]Celestial Blessing[/gold] to your [gold]Deck[/gold].",
   "SLAYRUNETERRA-DIVINE_FEATHER.flavor": "",
 
-  "SLAYRUNETERRA-SWORD_OF_JUDGEMENT.title": "Sword of Judgement",
-  "SLAYRUNETERRA-SWORD_OF_JUDGEMENT.description": "After you break an enemies [gold]Block[/gold], apply [blue]2[/blue] [gold]Weak[/gold] and [gold]Vulnerable[/gold].",
-  "SLAYRUNETERRA-SWORD_OF_JUDGEMENT.flavor": "",
-
   "SLAYRUNETERRA-DIVINE_HELMET.title": "Divine Helmet",
   "SLAYRUNETERRA-DIVINE_HELMET.description": "You can not lose more than [blue]{DamageCap:diff()}[/blue] HP at once.",
   "SLAYRUNETERRA-DIVINE_HELMET.flavor": "",
-  
-  
-  
-  
-  
-  
+
+  "SLAYRUNETERRA-ESSENCE_OF_AN_ANGEL.title": "Essence of an Angel",
+  "SLAYRUNETERRA-ESSENCE_OF_AN_ANGEL.description": "Upon pickup, add [blue]1[/blue] [gold]Apotheosis[/gold] to your [gold]Deck[/gold].",
+  "SLAYRUNETERRA-ESSENCE_OF_AN_ANGEL.flavor": "",
+
+
+
+
+
   "SLAYRUNETERRA-EMPTY.title": "",
   "SLAYRUNETERRA-EMPTY.description": "",
   "SLAYRUNETERRA-EMPTY.flavor": ""

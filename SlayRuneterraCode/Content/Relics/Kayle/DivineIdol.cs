@@ -10,7 +10,7 @@ using SlayRuneterra.Models;
 namespace SlayRuneterra.Content.Relics.Kayle;
 
 [Pool(typeof(EventRelicPool))]
-public class DivineIdol : SlayRuneterraRelic
+public class DivineIdol : SlayRuneterraRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 

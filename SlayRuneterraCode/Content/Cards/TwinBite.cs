@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -11,7 +12,7 @@ using SlayRuneterra.Models;
 namespace SlayRuneterra.Content.Cards;
 
 [Pool(typeof(EventCardPool))]
-public class TwinBite() : SlayRuneterraCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class TwinBite() : SlayRuneterraCardModel(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
@@ -20,6 +21,8 @@ public class TwinBite() : SlayRuneterraCard(1, CardType.Attack, CardRarity.Commo
                 new PowerVar<VulnerablePower>(1),
     ];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WeakPower>(), HoverTipFactory.FromPower<VulnerablePower>()];
+    
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)

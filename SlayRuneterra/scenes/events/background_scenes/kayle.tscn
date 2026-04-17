@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://gm7078sgf4fw" path="res://SlayRuneterra/images/events/ancients/kayle/kayle_splashart.png" id="1_6o6sx"]
 [ext_resource type="Texture2D" uid="uid://cte6flgh03t8u" path="res://SlayRuneterra/images/vfx/monsters/the_insatiable/sand_cloud.png" id="2_g3yns"]
 [ext_resource type="Texture2D" uid="uid://odoorf4o5pv" path="res://SlayRuneterra/images/vfx/small_star.png" id="3_skcgy"]
-[ext_resource type="Shader" uid="uid://qobk3bqdi07e" path="res://SlayRuneterra/shaders/vfx/vfx_water_reflection_post.gdshader" id="4_bga4c"]
-[ext_resource type="Texture2D" uid="uid://ci3fntxmlvjta" path="res://SlayRuneterra/images/vfx/torus_gradient.png" id="5_bga4c"]
+[ext_resource type="Shader" uid="uid://m5ucgrgbcpbd" path="res://SlayRuneterra/shaders/vfx/direction.gdshader" id="5_dcdob"]
 [ext_resource type="Texture2D" uid="uid://c3c8jwaa1jn30" path="res://SlayRuneterra/images/placeholder/100_100/white.png" id="6_dcdob"]
+[ext_resource type="Texture2D" uid="uid://cf20t5103qspc" path="res://SlayRuneterra/images/vfx/shader_move_test_4.png" id="6_x4q1m"]
 [ext_resource type="Texture2D" uid="uid://c5auen2e5xvue" path="res://SlayRuneterra/images/vfx/circle_gradient.png" id="7_dcdob"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_20ph4"]
@@ -65,22 +65,6 @@ blend_mode = 1
 offsets = PackedFloat32Array(0, 0.259, 1)
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_lsvsx"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1rowx"]
-noise = SubResource("FastNoiseLite_lsvsx")
-seamless = true
-normalize = false
-seamless_blend_skirt = 0.293
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4diuf"]
-shader = ExtResource("4_bga4c")
-shader_parameter/noise = SubResource("NoiseTexture2D_1rowx")
-shader_parameter/mask = ExtResource("5_bga4c")
-shader_parameter/speed = 0.02500000118749
-shader_parameter/strength = 0.01500000071249
-shader_parameter/direction = Vector2(-1, 0)
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x4q1m"]
 blend_mode = 1
 
@@ -91,6 +75,21 @@ point_count = 3
 [sub_resource type="Gradient" id="Gradient_v53d6"]
 offsets = PackedFloat32Array(0, 0.412, 0.992)
 colors = PackedColorArray(0.34901962, 0.34901962, 0.34901962, 1, 1, 1, 1, 1, 0.34901962, 0.34901962, 0.34901962, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lsvsx"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1rowx"]
+noise = SubResource("FastNoiseLite_lsvsx")
+seamless = true
+normalize = false
+seamless_blend_skirt = 0.293
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4diuf"]
+shader = ExtResource("5_dcdob")
+shader_parameter/noise = SubResource("NoiseTexture2D_1rowx")
+shader_parameter/mask = ExtResource("6_dcdob")
+shader_parameter/fixed = ExtResource("6_x4q1m")
+shader_parameter/strength = 2.0
 
 [node name="Kayle" type="Control"]
 layout_mode = 3
@@ -143,13 +142,6 @@ initial_velocity_max = 50.0
 scale_amount_max = 2.0
 color = Color(0.8862745, 0.73333335, 0.2784314, 0.44313726)
 color_ramp = SubResource("Gradient_kc5bq")
-
-[node name="fluid orb" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_4diuf")
-position = Vector2(1311, 429.00003)
-rotation = 0.21412915
-scale = Vector2(20, 20)
-texture = ExtResource("6_dcdob")
 
 [node name="sword glow" type="Node2D" parent="."]
 position = Vector2(-6.1035156e-05, -6.1035156e-05)
@@ -204,3 +196,18 @@ scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_lsvsx")
 color = Color(0.7, 0.41836667, 0.20300001, 0.4862745)
 color_ramp = SubResource("Gradient_v53d6")
+
+[node name="fluid orb" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_4diuf")
+position = Vector2(1311, 429.00003)
+rotation = 0.21412915
+scale = Vector2(20, 20)
+texture = ExtResource("6_dcdob")
+
+[node name="fluid orb2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4diuf")
+position = Vector2(906, 723)
+rotation = -0.0006904602
+scale = Vector2(25, 15)
+texture = ExtResource("6_dcdob")

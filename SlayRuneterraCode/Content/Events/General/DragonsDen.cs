@@ -19,7 +19,7 @@ public class DragonsDen : SlayRuneterraEventModel
     public override string? CustomBackgroundScenePath => null;
     public override string? CustomVfxPath => "";
 
-    public override bool IsAllowed(RunState runState)
+    public override bool IsAllowed(IRunState runState)
     {
         return SlayRuneterraConfig.IsEnabled;
     }

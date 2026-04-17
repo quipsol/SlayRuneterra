@@ -5,7 +5,7 @@ using SlayRuneterra.Extensions;
 
 namespace SlayRuneterra.Models;
 
-public abstract class SlayRuneterraCard(int cost, CardType type, CardRarity rarity, TargetType target) :
+public abstract class SlayRuneterraCardModel(int cost, CardType type, CardRarity rarity, TargetType target) :
             CustomCardModel(cost, type, rarity, target)
 {
     //Image size:

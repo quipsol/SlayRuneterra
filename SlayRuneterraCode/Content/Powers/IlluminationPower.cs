@@ -18,7 +18,7 @@ public class IlluminationPower : SlayRuneterraPowerModel
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    private bool _active = false;
+    //private bool _active = false;
     private decimal _latestAddedAmount = 0;
     
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)

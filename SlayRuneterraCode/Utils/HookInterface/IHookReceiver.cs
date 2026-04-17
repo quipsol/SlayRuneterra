@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Screens.MainMenu;
 using MegaCrit.Sts2.Core.Runs;
-using SlayRuneterra.Content.Events.Demacia;
+using SlayRuneterra.Content.Events.DemaciaAct;
 
 namespace SlayRuneterra.Utils.HookInterface;
 
