@@ -24,22 +24,21 @@ namespace SlayRuneterra.Content.Acts;
 
 public class Freljord : CustomActModel
 {
- public override string? CustomBackgroundScenePath => "res://SlayRuneterra/scenes/acts/demacia/demacia_background.tscn";
-    public override string? CustomMapTopBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_top_demacia.png";
-    public override string? CustomMapMidBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_middle_demacia.png";
-    public override string? CustomMapBotBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_bottom_demacia.png";
-    public override string? CustomRestSiteBackgroundPath => "res://SlayRuneterra/scenes/acts/demacia/demacia_rest_site.tscn";
+ public override string CustomBackgroundScenePath => "res://SlayRuneterra/scenes/acts/demacia/demacia_background.tscn";
+    public override string CustomMapTopBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_top_demacia.png";
+    public override string CustomMapMidBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_middle_demacia.png";
+    public override string CustomMapBotBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_bottom_demacia.png";
+    public override string CustomRestSiteBackgroundPath => "res://SlayRuneterra/scenes/acts/demacia/demacia_rest_site.tscn";
 
-    public override Dictionary<string, List<string?>> LayerPaths => new() 
-    { 
-                ["background"] = ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_00_a.tscn"], 
-                ["one"] = ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_01_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_01_b.tscn"],
-                ["two"] = ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_02_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_02_b.tscn"],
-                ["three"] = ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_03_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_03_b.tscn"],
-                ["four"] = ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_04_a.tscn"],
-                ["five"] = ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_05_a.tscn"],
-                ["foreground"] = ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_fg_a.tscn"],
-    };
+    public override List<List<string>> BackgroundLayerPaths => 
+    [
+                ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_00_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_00_b.tscn"],
+                ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_01_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_01_b.tscn"],
+                ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_02_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_02_b.tscn"],
+                ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_03_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_03_b.tscn"],
+                ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_04_a.tscn"],
+                ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_05_a.tscn"],
+    ];
     
 
     public override Color MapTraveledColor  => new Color("27221C");

@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://w2bf7jpf6cfa"]
+
+[ext_resource type="Texture2D" uid="uid://cmhmgh2luqqai" path="res://SlayRuneterra/images/acts/demacia/treasure_room/combine.png" id="1_wceji"]
+[ext_resource type="Script" uid="uid://dvf6pg4gjbs2t" path="res://SlayRuneterraCode/Nodes/NTestChestAnim.cs" id="2_wh58f"]
+
+[sub_resource type="Animation" id="Animation_am3xk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_wh58f"]
+resource_name = "animation_test_one"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mlfj2"]
+_data = {
+&"RESET": SubResource("Animation_am3xk"),
+&"animation_test_one": SubResource("Animation_wh58f")
+}
+
+[node name="TestAnim" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_wh58f")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("1_wceji")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(254, 210)
+scale = Vector2(3.598094, 3.6598306)
+texture = ExtResource("1_wceji")
+hframes = 4
+vframes = 4
+
+[node name="ChestAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_mlfj2")
+}

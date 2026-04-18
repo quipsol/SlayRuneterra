@@ -1,0 +1,6 @@
+﻿1.  In csproj, change Include="sts2" private value to true
+    => load Tools and nodes in godot editor
+    Warning: Places sts2.dll into .godot folder
+    
+2. Install Defold atlas support plugin
+    => hasnt done anything yet

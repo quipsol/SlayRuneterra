@@ -30,6 +30,9 @@ public class CustomActGenerateBackgroundAssets
 
         (string? ScenePath, List<string> BackgroundLayerPaths, string? ForegroundLayerPath) customBackgroundAssets = customActModel.GetBackgroundAssetPaths(rng);
         
+        //TODO: Option to build scene dynamically. It will read the Lists length and create the node with all the Layers it needs
+        // This can't be done in here though but should be done in where ever the scene path is used
+        
         bgSceneField.SetValue(backgroundAssets, customBackgroundAssets.ScenePath);
         bgLayersField.SetValue(backgroundAssets, customBackgroundAssets.BackgroundLayerPaths);
         fgLayerField.SetValue(backgroundAssets, customBackgroundAssets.ForegroundLayerPath);

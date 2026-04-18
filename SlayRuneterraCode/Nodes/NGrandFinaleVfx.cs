@@ -33,7 +33,7 @@ public partial class NGrandFinaleVfx : Node2D
         {
             return null;
         }
-        NCreature nCreature = NCombatRoom.Instance?.GetCreatureNode(creature);
+        NCreature? nCreature = NCombatRoom.Instance?.GetCreatureNode(creature);
         if (nCreature != null)
         {
             return Create(nCreature.VfxSpawnPosition, tint, goingRight);

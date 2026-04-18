@@ -21,37 +21,50 @@ namespace SlayRuneterra.Content.Acts;
 
 public sealed class Demacia : CustomActModel
 {
-    public override string? CustomBackgroundScenePath => "res://SlayRuneterra/scenes/acts/demacia/demacia_background.tscn";
-    public override string? CustomMapTopBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_top_demacia.png";
-    public override string? CustomMapMidBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_middle_demacia.png";
-    public override string? CustomMapBotBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_bottom_demacia.png";
-    public override string? CustomRestSiteBackgroundPath => "res://SlayRuneterra/scenes/acts/demacia/demacia_rest_site.tscn";
+    public override string? ChestAtlasPath => "res://SlayRuneterra/animations/backgrounds/treasure_room/test_anim.tscn";
+    
+    public override string ChestSpineResourcePath => "res://animations/backgrounds/treasure_room/chest_room_act_2_skel_data.tres";
+    // No idea how to handle animations yet
+    //public override string ChestSpineResourcePath => "res://SlayRuneterra/animations/backgrounds/treasure_room/chest_room_demacia_skel_data.tres";
+    
+    
+    public override string CustomBackgroundScenePath => "res://SlayRuneterra/scenes/acts/demacia/demacia_background.tscn";
+    public override string CustomMapTopBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_top_demacia.png";
+    public override string CustomMapMidBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_middle_demacia.png";
+    public override string CustomMapBotBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_bottom_demacia.png";
+    public override string CustomRestSiteBackgroundPath => "res://SlayRuneterra/scenes/acts/demacia/demacia_rest_site.tscn";
 
-    public override Dictionary<string, List<string?>> LayerPaths => new()
-    {
-                ["background"] = ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_00_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_00_b.tscn"],
-                ["one"] = ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_01_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_01_b.tscn"],
-                ["two"] = ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_02_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_02_b.tscn"],
-                ["three"] = ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_03_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_03_b.tscn"],
-                ["four"] = ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_04_a.tscn"],
-                ["five"] = ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_05_a.tscn"],
-                ["foreground"] = ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_fg_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_fg_b.tscn"],
-    };
 
-    public override (string?, List<string>, string?) GetBackgroundAssetPaths(Rng rng)
+    public override List<string> ForegroundLayerPaths =>
+                ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_fg_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_fg_b.tscn"];
+
+    // Is Dictionary for keys to allow for 
+    public override List<List<string>> BackgroundLayerPaths => 
+    [
+                ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_00_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_00_b.tscn"],
+                ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_01_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_01_b.tscn"],
+                ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_02_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_02_b.tscn"],
+                ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_03_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_03_b.tscn"],
+                ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_04_a.tscn"],
+                ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_05_a.tscn"],
+    ];
+
+    public override (string, List<string>, string?) GetBackgroundAssetPaths(Rng rng)
     {
         bool daytime = rng.NextBool();
+        string foreground = ForegroundLayerPaths[daytime ? 0 : 1];
         List<string> layers = new();
-        layers.Add(LayerPaths.GetValueOrDefault("background")![daytime ? 0 : 1]!);
-        string? foreground = LayerPaths.GetValueOrDefault("foreground")![daytime ? 0 : 1];
-        
-        foreach (var layerPath in LayerPaths)
+        bool isBackground = true;
+        foreach (var layerPaths in BackgroundLayerPaths)
         {
-            if (layerPath.Key is "background" or "foreground")
+            if (isBackground)
+            {
+                layers.Add(layerPaths[daytime ? 0 : 1]);
+                isBackground = false;
                 continue;
-            layers.Add(rng.NextItem(layerPath.Value) ?? "");
+            }
+            layers.Add(rng.NextItem(layerPaths) ?? "");
         }
-
         return (CustomBackgroundScenePath, layers, foreground);
     }
 
@@ -68,11 +81,6 @@ public sealed class Demacia : CustomActModel
     protected override int NumberOfWeakEncounters => 3; // optional override
 
 
-
-    public override string ChestSpineResourcePath => "res://animations/backgrounds/treasure_room/chest_room_act_2_skel_data.tres";
-
-    // No idea how to handle animations yet
-    //public override string ChestSpineResourcePath => "res://SlayRuneterra/animations/backgrounds/treasure_room/chest_room_demacia_skel_data.tres";
 
     public override string ChestSpineSkinNameNormal => "act2";
     public override string ChestSpineSkinNameStroke => "act2_stroke";

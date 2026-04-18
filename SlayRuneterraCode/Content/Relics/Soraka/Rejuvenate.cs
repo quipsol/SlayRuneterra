@@ -14,6 +14,8 @@ public class Rejuvenate : SlayRuneterraRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
+    public override bool IsUsedUp => HasTriggered;
+    
     private bool _hasTriggered;
     
     [SavedProperty]

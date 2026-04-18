@@ -34,7 +34,7 @@ public class MyGrandFinale() : SlayRuneterraCardModel(1, CardType.Attack, CardRa
     private const string _daggerSpraySfx = "event:/sfx/characters/silent/silent_dagger_spray";
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        Func<Node2D> func = (() => NGrandFinaleVfx.Create(base.Owner.Creature, new Color("#ff0000"), goingRight: true));
+        Func<Node2D> func = (() => NGrandFinaleVfx.Create(base.Owner.Creature, new Color("#ff0000"), goingRight: true)!);
         NCombatRoom? instance = NCombatRoom.Instance;
         if (instance is not null)
             instance.CombatVfxContainer.AddChildSafely((Godot.Node) func());
@@ -50,7 +50,7 @@ public class MyGrandFinale() : SlayRuneterraCardModel(1, CardType.Attack, CardRa
                                     IReadOnlyList<Creature> hittableEnemies = base.CombatState.HittableEnemies;
                                     foreach (Creature item in hittableEnemies)
                                     {
-                                        NDaggerSprayImpactVfx child = NDaggerSprayImpactVfx.Create(item, new Color("#000000"), goingRight: true);
+                                        NDaggerSprayImpactVfx child = NDaggerSprayImpactVfx.Create(item, new Color("#000000"), goingRight: true)!;
                                         NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(child);
                                     }
                                     return Task.CompletedTask;

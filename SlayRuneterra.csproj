@@ -76,7 +76,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.0.3" PrivateAssets="All" />
+        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.0.6" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*"/>
         <AdditionalFiles Include="SlayRuneterra/localization/**/*.json"/>
     </ItemGroup>
@@ -107,6 +107,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Content Include="_ImportantChanges" />
       <Content Include="_TODO.txt" />
     </ItemGroup>
 

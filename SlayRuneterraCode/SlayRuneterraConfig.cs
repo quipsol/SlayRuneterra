@@ -2,7 +2,7 @@
 
 namespace SlayRuneterra;
 
-[HoverTipsByDefault]
+[ConfigHoverTipsByDefault]
 public class SlayRuneterraConfig : SimpleModConfig
 {
     [ConfigSection("Enable")]

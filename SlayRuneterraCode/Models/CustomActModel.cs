@@ -14,39 +14,35 @@ namespace SlayRuneterra.Models;
 public abstract class CustomActModel : ActModel, ICustomModel, IHookReceiver
 {
     public override bool ShouldReceiveCombatHooks => true;
-    
-    public virtual string? CustomBackgroundScenePath => null; // tscn
-    public virtual string? CustomMapTopBgPath => null; // png
-    public virtual string? CustomMapMidBgPath => null; // png // TODO: Make this part repeatable for larger maps if its not done already
-    public virtual string? CustomMapBotBgPath => null; // png
-    public virtual string? CustomRestSiteBackgroundPath => null; // tscn
 
-    public virtual Dictionary<string, List<string?>> LayerPaths => new();
+    public virtual string CustomBackgroundScenePath => $"res://{MainFile.ModId}/scenes/backgrounds/{Id.Entry.ToLowerInvariant()}/{Id.Entry.ToLowerInvariant()}_background.tscn";
+    public virtual string CustomMapTopBgPath => $"res://{MainFile.ModId}/images/packed/map/map_bgs/{Id.Entry.ToLowerInvariant()}/map_bottom_{Id.Entry.ToLowerInvariant()}.png";
+    public virtual string CustomMapMidBgPath => $"res://{MainFile.ModId}/images/packed/map/map_bgs/{Id.Entry.ToLowerInvariant()}/map_middle_{Id.Entry.ToLowerInvariant()}.png";
+    public virtual string CustomMapBotBgPath => $"res://{MainFile.ModId}/images/packed/map/map_bgs/{Id.Entry.ToLowerInvariant()}/map_top_{Id.Entry.ToLowerInvariant()}.png";
+    public virtual string CustomRestSiteBackgroundPath => $"res://{MainFile.ModId}/scenes/rest_site/{Id.Entry.ToLowerInvariant()}_rest_site.tscn";
+
+    // ChestSpineResourcePath
+    public virtual string? ChestAtlasPath => null;
     
+    public virtual List<string> ForegroundLayerPaths => [];
+    public virtual List<List<string>> BackgroundLayerPaths => [];
     
-    // This is a method instead of a property to allow the use of the rng reference in overrides
-    // TODO: Remove the rng reference? This is purely cosmetic, prefer to use Rng.Chaotic!?
-    public virtual string? GetBackgroundAssetScenePath(Rng rng) { return CustomBackgroundScenePath; }
+    // game only ever has one scene file for an act so this method is currently useless
+    // might change behaviour to allow for multiple scenes or even create a scene dynamically
+    public virtual string GetBackgroundAssetScenePath(Rng rng) => CustomBackgroundScenePath;
+    public virtual string? GetBackgroundAssetFgLayerPath(Rng rng) => rng.NextItem(ForegroundLayerPaths);
     public virtual List<string> GetBackgroundAssetBgLayerPaths(Rng rng) 
     {
-        List<string> list = new List<string>();
-        list.Add(rng.NextItem(LayerPaths.GetValueOrDefault("background") ?? [""]) ?? "");
-        foreach (var layerPath in LayerPaths)
+        List<string> list = [];
+        foreach (var layerPaths in BackgroundLayerPaths)
         {
-            if (layerPath.Key is "background" or "foreground")
-                continue;
-            list.Add(rng.NextItem(layerPath.Value) ?? "");
+            list.Add(rng.NextItem(layerPaths) ?? "");
         }
         return list;
     }
-    public virtual string? GetBackgroundAssetFgLayerPath(Rng rng) { return rng.NextItem(LayerPaths.GetValueOrDefault("foreground") ?? [""]) ?? ""; }
 
-    /// <summary>
-    /// Returns a tuple of (ScenePath, BackgroundLayerPaths, ForegroundLayerPath)
-    /// </summary>
-    /// <param name="rng"></param>
-    /// <returns></returns>
-    public virtual (string?, List<string>, string?) GetBackgroundAssetPaths(Rng rng)
+    /// <returns>Tuple of (ScenePath, BackgroundLayerPaths, ForegroundLayerPath)</returns>
+    public virtual (string, List<string>, string?) GetBackgroundAssetPaths(Rng rng)
     {
         return (GetBackgroundAssetScenePath(rng), GetBackgroundAssetBgLayerPaths(rng), GetBackgroundAssetFgLayerPath(rng));
     }
@@ -62,21 +58,18 @@ class CustomActBackgroundScenePath
     static bool UseAltTexture(ActModel __instance, ref string? __result)
     {
         if (__instance is not CustomActModel customAct) return true;
-        if (customAct.CustomBackgroundScenePath == null) return true;
         __result = customAct.CustomBackgroundScenePath;
         return false;
     }
 }
-
-[HarmonyPatch(typeof(ActModel), nameof(ActModel.MapBotBgPath), MethodType.Getter)]
-class CustomActMapBotBgPath
+[HarmonyPatch(typeof(ActModel), nameof(ActModel.MapTopBgPath), MethodType.Getter)]
+class CustomActMapTopBgPath
 {
     [HarmonyPrefix]
     static bool UseAltTexture(ActModel __instance, ref string? __result)
     {
         if (__instance is not CustomActModel customAct) return true;
-        if (customAct.CustomMapBotBgPath == null) return true;
-        __result = customAct.CustomMapBotBgPath;
+        __result = customAct.CustomMapTopBgPath;
         return false;
     }
 }
@@ -88,21 +81,19 @@ class CustomActMapMidBgPath
     static bool UseAltTexture(ActModel __instance, ref string? __result)
     {
         if (__instance is not CustomActModel customAct) return true;
-        if (customAct.CustomMapMidBgPath == null) return true;
         __result = customAct.CustomMapMidBgPath;
         return false;
     }
 }
 
-[HarmonyPatch(typeof(ActModel), nameof(ActModel.MapTopBgPath), MethodType.Getter)]
-class CustomActMapTopBgPath
+[HarmonyPatch(typeof(ActModel), nameof(ActModel.MapBotBgPath), MethodType.Getter)]
+class CustomActMapBotBgPath
 {
     [HarmonyPrefix]
     static bool UseAltTexture(ActModel __instance, ref string? __result)
     {
         if (__instance is not CustomActModel customAct) return true;
-        if (customAct.CustomMapTopBgPath == null) return true;
-        __result = customAct.CustomMapTopBgPath;
+        __result = customAct.CustomMapBotBgPath;
         return false;
     }
 }
@@ -114,7 +105,6 @@ class CustomActRestSiteBackgroundPath
     static bool UseAltTexture(ActModel __instance, ref string? __result)
     {
         if (__instance is not CustomActModel customAct) return true;
-        if (customAct.CustomRestSiteBackgroundPath == null) return true;
         __result = customAct.CustomRestSiteBackgroundPath;
         return false;
     }

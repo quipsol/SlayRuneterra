@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://y5qmvuhmdcnf"]
+[gd_scene load_steps=17 format=3 uid="uid://y5qmvuhmdcnf"]
 
 [ext_resource type="Script" uid="uid://cs6ihfcvgwxhv" path="res://SlayRuneterraCode/Nodes/NCustomCombatBackground.cs" id="1_mwytj"]
+[ext_resource type="PackedScene" uid="uid://cvviagn3j2k8h" path="res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_00_a.tscn" id="3_7jq0r"]
 [ext_resource type="Script" uid="uid://cgysb3rxsvb1f" path="res://SlayRuneterraCode/Nodes/NCustomBgLayerDebug.cs" id="3_pxyi6"]
+[ext_resource type="PackedScene" uid="uid://bwuqncgv5w7kf" path="res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_00_b.tscn" id="4_oyfed"]
+[ext_resource type="PackedScene" uid="uid://yu0apdmuyamb" path="res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_01_a.tscn" id="5_77i2q"]
+[ext_resource type="PackedScene" uid="uid://d1tl60l3b6ccr" path="res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_01_b.tscn" id="6_5ltqa"]
+[ext_resource type="PackedScene" uid="uid://cd50tfcuvk4nj" path="res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_02_a.tscn" id="7_358ef"]
+[ext_resource type="PackedScene" uid="uid://cpv3wijtwsacd" path="res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_02_b.tscn" id="8_33qfl"]
+[ext_resource type="PackedScene" uid="uid://d6wiutvnyy1g" path="res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_02_c.tscn" id="9_6yxty"]
+[ext_resource type="PackedScene" uid="uid://bxmxvt3r6i50f" path="res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_03_a.tscn" id="10_jln0g"]
+[ext_resource type="PackedScene" uid="uid://c86btpyjmy6o3" path="res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_03_b.tscn" id="11_36slc"]
+[ext_resource type="PackedScene" uid="uid://dmx5r2ae5t7n5" path="res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_03_c.tscn" id="12_nids5"]
+[ext_resource type="PackedScene" uid="uid://dahi8qtmonb0y" path="res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_04_a.tscn" id="13_sng30"]
+[ext_resource type="PackedScene" uid="uid://b510rif75gsxo" path="res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_05_a.tscn" id="14_uq5kj"]
+[ext_resource type="PackedScene" uid="uid://nhgbmtqd360k" path="res://SlayRuneterra/scenes/acts/demacia/layers/demacia_fg_a.tscn" id="15_gdhp1"]
+[ext_resource type="PackedScene" uid="uid://bxoqjdyg0ce0" path="res://SlayRuneterra/scenes/acts/demacia/layers/demacia_fg_b.tscn" id="16_5i5p7"]
 
 [node name="DemaciaBackground" type="Control"]
 layout_mode = 3
@@ -12,28 +26,56 @@ script = ExtResource("1_mwytj")
 anchors_preset = 0
 script = ExtResource("3_pxyi6")
 VisibleLayer = 1
+_layerA = ExtResource("3_7jq0r")
+_layerB = ExtResource("4_oyfed")
+_layerC = null
+_visibleLayer = 1
 
 [node name="Layer_01" type="Control" parent="."]
 anchors_preset = 0
 script = ExtResource("3_pxyi6")
+_layerA = ExtResource("5_77i2q")
+_layerB = ExtResource("6_5ltqa")
+_layerC = null
+_visibleLayer = 0
 
 [node name="Layer_02" type="Control" parent="."]
 anchors_preset = 0
 script = ExtResource("3_pxyi6")
+_layerA = ExtResource("7_358ef")
+_layerB = ExtResource("8_33qfl")
+_layerC = ExtResource("9_6yxty")
+_visibleLayer = 0
 
 [node name="Layer_03" type="Control" parent="."]
 anchors_preset = 0
 script = ExtResource("3_pxyi6")
+_layerA = ExtResource("10_jln0g")
+_layerB = ExtResource("11_36slc")
+_layerC = ExtResource("12_nids5")
+_visibleLayer = 0
 
 [node name="Layer_04" type="Control" parent="."]
 anchors_preset = 0
 script = ExtResource("3_pxyi6")
+_layerA = ExtResource("13_sng30")
+_layerB = null
+_layerC = null
+_visibleLayer = 0
 
 [node name="Layer_05" type="Control" parent="."]
 anchors_preset = 0
 script = ExtResource("3_pxyi6")
+_layerA = ExtResource("14_uq5kj")
+_layerB = null
+_layerC = null
+_visibleLayer = 0
 
 [node name="Foreground" type="Control" parent="."]
 anchors_preset = 0
 script = ExtResource("3_pxyi6")
 VisibleLayer = 1
+_layerA = ExtResource("15_gdhp1")
+_layerB = ExtResource("16_5i5p7")
+_layerC = null
+_visibleLayer = 1

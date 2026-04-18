@@ -7,7 +7,7 @@ namespace SlayRuneterra.Nodes;
 [Tool]
 public partial class NCustomBgLayerDebug : Control
 {
-	public new enum LayerVisibility
+	public enum LayerVisibility
 {
 	A,
 	B,
@@ -25,7 +25,7 @@ private PackedScene? _layerC;
 private LayerVisibility _visibleLayer;
 
 [Export(PropertyHint.None, "")]
-public new LayerVisibility VisibleLayer
+public LayerVisibility VisibleLayer
 {
 	get
 	{

@@ -58,10 +58,15 @@ public class ActModelPatch
         ModHelper.SubscribeForCombatStateHooks("SLAYRUNETERRA-I_HOOK_RECEIVER", CombatSubModels);
     }
     
+    //TODO
+    // Currently always runs the hooks
+    // Add iteration logic (like: if(CustomActModel == runState.Act))
+    // Add general Func for these that can be overriden (Interface default stuff?)
     public static IEnumerable<AbstractModel> RunSubModels(RunState runState)
     {
         return allModels;
     }
+    // TODO: Add iteration logic (like: if(CustomActModel == combatState.runState.Act))
     public static IEnumerable<AbstractModel> CombatSubModels(CombatState combatState)
     {
         return allModels;

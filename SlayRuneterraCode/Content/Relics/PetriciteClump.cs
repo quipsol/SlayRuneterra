@@ -32,6 +32,8 @@ public class PetriciteClump() : SlayRuneterraRelicModel
             if(value == this._active) return;
             this.AssertMutable();
             this._active = value;
+            if(!_active)
+                Status = RelicStatus.Disabled;
             this.DynamicVars["IsActive"].BaseValue = DisplayAmount;
             this.InvokeDisplayAmountChanged();
         }
@@ -67,6 +69,7 @@ public class PetriciteClump() : SlayRuneterraRelicModel
     public override Task AfterCombatVictory(CombatRoom room)
     {
         Active = false;
+        Status = RelicStatus.Disabled;
         return Task.CompletedTask;
     }
 }

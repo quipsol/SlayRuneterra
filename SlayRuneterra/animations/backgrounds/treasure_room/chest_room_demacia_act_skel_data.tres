@@ -1,8 +1,0 @@
-[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://bfffo751iuiig"]
-
-[ext_resource type="SpineAtlasResource" path="res://DemaciaAct/animations/backgrounds/treasure_room/chest_room_demacia_act.atlas" id="1_y2wtn"]
-[ext_resource type="SpineSkeletonFileResource" path="res://DemaciaAct/animations/backgrounds/treasure_room/chest_room_demacia_act.skel" id="2_gdnl6"]
-
-[resource]
-atlas_res = ExtResource("1_y2wtn")
-skeleton_file_res = ExtResource("2_gdnl6")
