@@ -23,7 +23,7 @@ public class VanguardGuardsNormal(): SlayRuneterraEncounterModel()
         return
         [
                     (ModelDb.Monster<VanguardCharger>().ToMutable(), null),
-                    (this.Rng.NextItem(AllPossibleMonsters)!.ToMutable(), null),
+                    (Rng.NextItem(AllPossibleMonsters)!.ToMutable(), null),
                     (ModelDb.Monster<VanguardDefender>().ToMutable(), null)
         ];
     }

@@ -1,7 +1,42 @@
-﻿Current Goals:
+﻿CustomActModel:
+1. Options to insert Acts
+    - possible act
+    - guaranteed act -> would be nice if BaseLib options offer a dropdown on which act is currently guaranteed
+2. Additional "Disable Act" option
+3. Fork BaseLib and implement CustomActModel there
+4. Create test mod for custom Acts to verify integrity and workflow
+5. Option to generate entire backgroundscene from code?
+
+I would imagine the BaseLib options to be:
+Possible Acts:
+    button that opens a window
+    window has list of all possible acts, sorted by 1, 2, 3
+    each act displays their name and an active/inactive checkbox
+Guaranteed Acts:
+    Three dropdowns (1 for each act)
+    chosen Act is guaranteed (overrides PossibleActs)
+    "None" option
+Full Spire replacement:
+    Replaces all act picking logic with your own
+    One dropdown for all options
+    "None" option
+
+Current Goals:
 1. Make a fully working Act 1
 2. Make a fully working Ancient (Kayle and Soraka)
-
+3. Blind Creates State Divergence
+4. Make CustomActModel
+    1. Patch Boss icons
+        - ImageHelper only gets the encounterModelId to work with, so not a good place to patch
+        - NTopBarBossIcon.RefreshBossIcon -> Transpile the ImageHelper to check for act and divert GetPath if needed (4x)
+        - NTopBarRoomIcon.UpdateIcon -> Transpile the ImageHelper to check for act + room type and divert if needed (2x)
+    2. Act specific Achievements (for now, simply disallow any)    (check AchievementsHelper_Patch.cs)
+    3. Figure out Logging_Patch.cs fuckery
+    4. NRelicCollectionPatch made by Cany
+    5. Patch Boss Background Scenes
+        - SceneHelper.GetScenePath
+    
+    
 General:
 1. Add Acts with default enemies/etc for:
  - Act 1: Noxus

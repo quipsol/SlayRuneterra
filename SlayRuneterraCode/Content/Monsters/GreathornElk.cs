@@ -1,6 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -65,7 +66,7 @@ public class GreathornElk : SlayRuneterraMonsterModel
     }
     private async Task Wail(IReadOnlyList<Creature> targets)
     {
-        await PowerCmd.Apply<WeakPower>(targets, WailWeak, this.Creature, null);
+        await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, WailWeak, this.Creature, null);
         await CreatureCmd.GainBlock(this.Creature, new BlockVar(WailBlock, ValueProp.Move), null);
         _wailCooldownCounter = 0;
     }

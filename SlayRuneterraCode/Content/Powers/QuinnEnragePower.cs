@@ -23,7 +23,7 @@ public class QuinnEnragePower : SlayRuneterraPowerModel
         if (creature.Monster is not Valor || wasRemovalPrevented)
             return;
 
-        var p = await PowerCmd.Apply<RitualPower>(this.Owner, 2, this.Owner, null);
+        var p = await PowerCmd.Apply<RitualPower>(choiceContext,this.Owner, 2, this.Owner, null);
         await p!.AfterTurnEnd(new ThrowingPlayerChoiceContext(), CombatSide.Enemy); // Give me a proper "deactivate this thing" MegaCrit, so I don't have to do this shit
         await PowerCmd.Remove(this);
     }

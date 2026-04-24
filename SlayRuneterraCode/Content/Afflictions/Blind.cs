@@ -11,38 +11,4 @@ namespace SlayRuneterra.Content.Afflictions;
 public class Blind : CustomAfflictionModel
 {
     public override bool HasExtraCardText => true;
-    
-    public override void AfterApplied()
-    { }
-
-    public override Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
-    {
-        if(cardPlay.Card.Affliction is Blind)
-            CardCmd.ClearAffliction(cardPlay.Card);
-        return Task.CompletedTask;
-    }
-
-    public override Task AfterCardDiscarded(PlayerChoiceContext choiceContext, CardModel card)
-    {
-        if(card.Affliction is Blind)
-            CardCmd.ClearAffliction(card);
-        return Task.CompletedTask;
-    }
-
-    public override Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
-    {
-        foreach (Player player in CombatState.Players)
-        {
-            foreach (CardPile pile in player.Piles)
-            {
-                foreach (CardModel card in pile.Cards)
-                {
-                    if(card.Affliction is Blind)
-                        CardCmd.ClearAffliction(card);
-                }
-            } 
-        }
-           
-        return Task.CompletedTask;
-    }
 }

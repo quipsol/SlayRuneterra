@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -96,13 +97,13 @@ public class Garen : SlayRuneterraMonsterModel
                     .WithAttackerFx(null, "event:/sfx/enemy/enemy_attacks/waterfall_giant/waterfall_giant_attack_kick")
                     .WithHitFx("vfx/vfx_attack_blunt")
                     .Execute(null);
-        await PowerCmd.Apply<WeakPower>(targets, DecisiveStrikeWeak, this.Creature, null);
+        await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, DecisiveStrikeWeak, this.Creature, null);
     }
     
     private async Task PerformCourage(IReadOnlyList<Creature> targets)
     {
         await CreatureCmd.GainBlock(this.Creature, new BlockVar(CourageBlock, ValueProp.Move), null);
-        await PowerCmd.Apply<StrengthPower>(this.Creature, CourageStrength, this.Creature, null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), this.Creature, CourageStrength, this.Creature, null);
     }
     
     private async Task PerformStun(IReadOnlyList<Creature> targets)

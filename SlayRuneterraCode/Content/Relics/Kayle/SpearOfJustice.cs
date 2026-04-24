@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -28,10 +29,10 @@ public class SpearOfJustice : SlayRuneterraRelicModel
                 new CalculatedRelicVar("CalculatedVigor").WithMultiplier(relic => relic.Owner.Relics.Count * 2)
     ];
 
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, ICombatState combatState)
     {
         if (side != Owner.Creature.Side || combatState.RoundNumber != 1) return;
-        await PowerCmd.Apply<VigorPower>(Owner.Creature, ((CalculatedRelicVar) DynamicVars["CalculatedVigor"]).Calculate(), Owner.Creature, null);
+        await PowerCmd.Apply<VigorPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, ((CalculatedRelicVar) DynamicVars["CalculatedVigor"]).Calculate(), Owner.Creature, null);
     }
     
 }

@@ -11,6 +11,9 @@ namespace SlayRuneterra.Content.Encounters.Boss;
 
 public class JarvanTheFourthBoss() : SlayRuneterraEncounterModel(RoomType.Boss)
 {
+    
+    public override string? CustomScenePath => "res://SlayRuneterra/scenes/encounters/jarvan_the_fourth_boss.tscn";
+
     public override BackgroundAssets? CustomEncounterBackground(ActModel parentAct, Rng rng)
     {
         return null;

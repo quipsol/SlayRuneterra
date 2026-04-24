@@ -34,8 +34,8 @@ public class DivineIntervention() : SlayRuneterraCardModel(3, CardType.Skill, Ca
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await PowerCmd.Apply<IntangiblePower>(Owner.Creature, DynamicVars[nameof(IntangiblePower)].BaseValue, Owner.Creature, this);
-        await PowerCmd.Apply<DivineInterventionPower>(Owner.Creature, DynamicVars[nameof(DivineInterventionPower)].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<IntangiblePower>(choiceContext, Owner.Creature, DynamicVars[nameof(IntangiblePower)].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<DivineInterventionPower>(choiceContext, Owner.Creature, DynamicVars[nameof(DivineInterventionPower)].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

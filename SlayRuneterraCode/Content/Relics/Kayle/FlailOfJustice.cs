@@ -25,7 +25,7 @@ public class FlailOfJustice : SlayRuneterraRelicModel
     {
         if (!creature.IsMonster || creature.IsDead)
             return;
-        await PowerCmd.Apply<WeakPower>(creature, DynamicVars[nameof(WeakPower)].BaseValue, Owner.Creature, null);
-        await PowerCmd.Apply<VulnerablePower>(creature, DynamicVars[nameof(VulnerablePower)].BaseValue, Owner.Creature, null);
+        await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), creature, DynamicVars[nameof(WeakPower)].BaseValue, Owner.Creature, null);
+        await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), creature, DynamicVars[nameof(VulnerablePower)].BaseValue, Owner.Creature, null);
     }
 }

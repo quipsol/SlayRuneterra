@@ -22,15 +22,15 @@ using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Acts;
 
-public class Freljord : CustomActModel
+public class Freljord : SlayRuneterraActModel
 {
- public override string CustomBackgroundScenePath => "res://SlayRuneterra/scenes/acts/demacia/demacia_background.tscn";
-    public override string CustomMapTopBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_top_demacia.png";
-    public override string CustomMapMidBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_middle_demacia.png";
-    public override string CustomMapBotBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_bottom_demacia.png";
-    public override string CustomRestSiteBackgroundPath => "res://SlayRuneterra/scenes/acts/demacia/demacia_rest_site.tscn";
+    protected override string CustomBackgroundScenePath => "res://SlayRuneterra/scenes/acts/demacia/demacia_background.tscn";
+ protected override string CustomMapTopBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_top_demacia.png";
+ protected override string CustomMapMidBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_middle_demacia.png";
+ protected override string CustomMapBotBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_bottom_demacia.png";
+ protected override string CustomRestSiteBackgroundPath => "res://SlayRuneterra/scenes/acts/demacia/demacia_rest_site.tscn";
 
-    public override List<List<string>> BackgroundLayerPaths => 
+    public List<List<string>> BackgroundLayerPaths => 
     [
                 ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_00_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_00_b.tscn"],
                 ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_01_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_01_b.tscn"],
@@ -54,14 +54,9 @@ public class Freljord : CustomActModel
     protected override int NumberOfWeakEncounters => 3; // optional override
 
     
-    
+
+
     public override string ChestSpineResourcePath => "res://animations/backgrounds/treasure_room/chest_room_act_2_skel_data.tres";
-    
-    // No idea how to handle animations yet
-    //public override string ChestSpineResourcePath => "res://SlayRuneterra/animations/backgrounds/treasure_room/chest_room_demacia_skel_data.tres";
-    
-    public override string ChestSpineSkinNameNormal => "act2";
-    public override string ChestSpineSkinNameStroke => "act2_stroke";
     
     public override IEnumerable<EncounterModel> BossDiscoveryOrder => 
     [
@@ -72,7 +67,8 @@ public class Freljord : CustomActModel
     
     public override IEnumerable<AncientEventModel> AllAncients =>
     [
-                ModelDb.AncientEvent<Soraka>()
+                ModelDb.AncientEvent<Zoe>(),
+                ModelDb.AncientEvent<Kayle>()
     ];
 
     public override IEnumerable<EventModel> AllEvents =>
@@ -142,19 +138,32 @@ public class Freljord : CustomActModel
     }
     
 
-    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState)
+    // public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState)
+    // {
+    //     if (combatState.RunState.Act is not Freljord)
+    //         return;
+    //     
+    //     if (side != CombatSide.Player || combatState.RoundNumber > 1)
+    //         return;
+    //
+    //     foreach (var creature in combatState.Creatures)
+    //     {
+    //         WeakPower? power = await PowerCmd.Apply<WeakPower>(creature, 1, null,  null);
+    //         if(creature.IsPlayer)
+    //             power!.SkipNextDurationTick = false;
+    //     }
+    // }
+    
+    public override Task BeforeCombatStart()
     {
-        if (combatState.RunState.Act is not Freljord)
-            return;
-        
-        if (side != CombatSide.Player || combatState.RoundNumber > 1)
-            return;
-
-        foreach (var creature in combatState.Creatures)
-        {
-            WeakPower? power = await PowerCmd.Apply<WeakPower>(creature, 1, null,  null);
-            if(creature.IsPlayer)
-                power!.SkipNextDurationTick = false;
-        }
+        MainFile.Logger.Warn("======= Freljord - Before Combat Start =======");
+        return Task.CompletedTask;
     }
+
+    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, ICombatState combatState)
+    {
+        MainFile.Logger.Warn("======= Freljord - Before Side Turn Start =======");
+        return Task.CompletedTask;
+    }
+    
 }

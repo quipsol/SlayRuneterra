@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Extensions;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -85,7 +86,7 @@ public class JarvanTheFourth : SlayRuneterraMonsterModel
         {
             string slotName = this.CombatState.Encounter!.Slots.LastOrDefault((string s) => base.CombatState.Enemies.All((Creature c) => c.SlotName != s), string.Empty);
             var creature = await CreatureCmd.Add(this.RunRng.MonsterAi.NextItem(SummonableVanguards)!.ToMutable(), this.CombatState, this.Creature.Side, slotName);
-            await PowerCmd.Apply<MinionPower>(creature, 1m, this.Creature, null);
+            await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), creature, 1m, this.Creature, null);
         }
         await CreatureCmd.GainBlock(this.Creature, new BlockVar(RallyBlock, ValueProp.Move), null);
         _lastMoveRally = true;
@@ -95,7 +96,7 @@ public class JarvanTheFourth : SlayRuneterraMonsterModel
 
     private async Task PerformRaiseMorale(IReadOnlyList<Creature> targets)
     {
-        await PowerCmd.Apply<StrengthPower>(this.Creature.CombatState!.GetTeammatesOf(this.Creature).Where(creature => creature.IsAlive ), 
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), this.Creature.CombatState!.GetTeammatesOf(this.Creature).Where(creature => creature.IsAlive ), 
                     RaiseMoraleStrength, this.Creature, null);
         _lastMoveRally = false;
         _lastMoveRaiseMorale = true;
@@ -110,7 +111,7 @@ public class JarvanTheFourth : SlayRuneterraMonsterModel
                     .WithAttackerFx(null, "event:/sfx/enemy/enemy_attacks/waterfall_giant/waterfall_giant_attack_kick")
                     .WithHitFx("vfx/vfx_attack_blunt")
                     .Execute(null);
-        await PowerCmd.Apply<VulnerablePower>(targets, CutthroatVulnerable, this.Creature, null);
+        await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), targets, CutthroatVulnerable, this.Creature, null);
         _lastMoveRally = false;
         _lastMoveRaiseMorale = false;
         _lastMoveCutthroat = true;

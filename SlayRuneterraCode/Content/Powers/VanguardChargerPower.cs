@@ -29,7 +29,7 @@ public class VanguardChargerPower : SlayRuneterraPowerModel
             !target.ModelId.Entry.Contains(JARVAN, StringComparison.InvariantCultureIgnoreCase))
             || result.UnblockedDamage <= 0 || target == this.Owner)
             return;
-        await PowerCmd.Apply<StrengthPower>(this.Owner, this.Amount, this.Owner, null);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, this.Owner, this.Amount, this.Owner, null);
     }
 
     public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
@@ -39,6 +39,6 @@ public class VanguardChargerPower : SlayRuneterraPowerModel
         if (!creature.ModelId.Entry.Contains(VANGUARD, StringComparison.InvariantCultureIgnoreCase) &&
             !creature.ModelId.Entry.Contains(JARVAN, StringComparison.InvariantCultureIgnoreCase))
             return;
-        await PowerCmd.Apply<StrengthPower>(this.Owner, this.Amount, this.Owner, null);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, this.Owner, this.Amount, this.Owner, null);
     }
 }

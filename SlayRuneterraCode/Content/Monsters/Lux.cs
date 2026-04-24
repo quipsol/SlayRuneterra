@@ -1,6 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -82,8 +83,8 @@ public class Lux : SlayRuneterraMonsterModel
                     .WithAttackerFx(null, "event:/sfx/enemy/enemy_attacks/waterfall_giant/waterfall_giant_attack_kick")
                     .WithHitFx("vfx/vfx_attack_blunt")
                     .Execute(null);
-        await PowerCmd.Apply<VulnerablePower>(targets, LightBindingVulnerable, this.Creature, null);
-        await PowerCmd.Apply<IlluminationPower>(targets, this.Creature.GetPowerAmount<LuxIlluminationPower>(), this.Creature, null);
+        await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), targets, LightBindingVulnerable, this.Creature, null);
+        await PowerCmd.Apply<IlluminationPower>(new ThrowingPlayerChoiceContext(), targets, this.Creature.GetPowerAmount<LuxIlluminationPower>(), this.Creature, null);
     }
     
     private async Task PerformLucentSingularity(IReadOnlyList<Creature> targets)
@@ -92,7 +93,7 @@ public class Lux : SlayRuneterraMonsterModel
                     .WithAttackerFx(null, "event:/sfx/enemy/enemy_attacks/waterfall_giant/waterfall_giant_attack_kick")
                     .WithHitFx("vfx/vfx_attack_blunt")
                     .Execute(null);
-        await PowerCmd.Apply<IlluminationPower>(targets, this.Creature.GetPowerAmount<LuxIlluminationPower>(), this.Creature, null);
+        await PowerCmd.Apply<IlluminationPower>(new ThrowingPlayerChoiceContext(), targets, this.Creature.GetPowerAmount<LuxIlluminationPower>(), this.Creature, null);
     }
     
     private async Task PerformFinalesFunkeln(IReadOnlyList<Creature> targets)
@@ -101,7 +102,7 @@ public class Lux : SlayRuneterraMonsterModel
                     .WithAttackerFx(null, "event:/sfx/enemy/enemy_attacks/waterfall_giant/waterfall_giant_attack_kick")
                     .WithHitFx("vfx/vfx_attack_blunt")
                     .Execute(null);
-        await PowerCmd.Apply<IlluminationPower>(targets, this.Creature.GetPowerAmount<LuxIlluminationPower>(), this.Creature, null);
+        await PowerCmd.Apply<IlluminationPower>(new ThrowingPlayerChoiceContext(), targets, this.Creature.GetPowerAmount<LuxIlluminationPower>(), this.Creature, null);
     }
     
     private async Task PerformPrismaticBarrier(IReadOnlyList<Creature> targets)
@@ -120,7 +121,7 @@ public class Lux : SlayRuneterraMonsterModel
     
     private async Task PerformIllumination(IReadOnlyList<Creature> targets)
     {
-        await PowerCmd.Apply<LuxIlluminationPower>(Creature, IlluminationIncrease, this.Creature, null);
+        await PowerCmd.Apply<LuxIlluminationPower>(new ThrowingPlayerChoiceContext(), Creature, IlluminationIncrease, this.Creature, null);
     }
 
     #endregion State Methods
@@ -139,8 +140,8 @@ public class Lux : SlayRuneterraMonsterModel
     
     public override async Task AfterAddedToRoom()
     {
-        await PowerCmd.Apply<LuxIlluminationPower>(this.Creature, BaseIllumination, this.Creature, null);
-        await PowerCmd.Apply<SummonGalioPower>(this.Creature, (decimal)(this.Creature.MaxHp * 0.66), this.Creature, null);
+        await PowerCmd.Apply<LuxIlluminationPower>(new ThrowingPlayerChoiceContext(), this.Creature, BaseIllumination, this.Creature, null);
+        await PowerCmd.Apply<SummonGalioPower>(new ThrowingPlayerChoiceContext(), this.Creature, (decimal)(this.Creature.MaxHp * 0.66), this.Creature, null);
         
     }
 }

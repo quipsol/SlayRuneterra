@@ -1,11 +1,15 @@
 ﻿using System.Reflection;
+using Godot;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Screens.MainMenu;
+using MegaCrit.Sts2.Core.Nodes.Vfx.Utilities;
 using MegaCrit.Sts2.Core.Runs;
 using SlayRuneterra.Content.Events.DemaciaAct;
+using SlayRuneterra.Nodes;
 
 namespace SlayRuneterra.Utils.HookInterface;
 
@@ -17,19 +21,26 @@ namespace SlayRuneterra.Utils.HookInterface;
 /// and registered for <c>RunStateHooks</c> and <c>CombatStateHooks</c><br></br>
 /// <b>Requirements:</b>
 /// <list type="bullet">
-///   <item>  <description>  The class must be concrete (not <c>abstract</c>).  </description>   </item>
 ///   <item>  <description>  The class must have a corresponding entry in <see cref="ModelDb"/>. </description> </item>
 /// </list>
 /// This interface can be implemented on an abstract base class to implicitly include all derived types.<br></br>
 /// </remarks>
-public interface IHookReceiver { }
+public interface IHookReceiver
+{
+    /// <summary>
+    /// Override to further specify the conditions of when your Model should get iterated over
+    /// </summary>
+    /// <param name="combatState"></param>
+    /// <returns></returns>
+    bool ReceiveHooks(CombatState combatState) => true;
+}
 
 [HarmonyPatch(typeof(NMainMenu), nameof(NMainMenu._Ready))]
 public class ActModelPatch
 {
     private static bool _alreadyExecuted = false;
     
-    private static List<AbstractModel> allModels = new();
+    private static readonly List<AbstractModel> AllModels = new();
     
     [HarmonyPostfix]
     public static void Postfix()
@@ -50,26 +61,16 @@ public class ActModelPatch
             MainFile.Logger.Info("Model: " + abstractModel.Id.Entry);
             if(abstractModel is null)
                 continue;
-            allModels.Add(abstractModel);
+            AllModels.Add(abstractModel);
         }
 
-        if (allModels.Count <= 0) return;
-        ModHelper.SubscribeForRunStateHooks("SLAYRUNETERRA-I_HOOK_RECEIVER", RunSubModels);
-        ModHelper.SubscribeForCombatStateHooks("SLAYRUNETERRA-I_HOOK_RECEIVER", CombatSubModels);
+        if (AllModels.Count <= 0) return;
+        ModHelper.SubscribeForCombatStateHooks("SLAYRUNETERRA-I_HOOK_RECEIVER", HookSubModels);
     }
     
-    //TODO
-    // Currently always runs the hooks
-    // Add iteration logic (like: if(CustomActModel == runState.Act))
-    // Add general Func for these that can be overriden (Interface default stuff?)
-    public static IEnumerable<AbstractModel> RunSubModels(RunState runState)
+    public static IEnumerable<AbstractModel> HookSubModels(CombatState combatState)
     {
-        return allModels;
-    }
-    // TODO: Add iteration logic (like: if(CustomActModel == combatState.runState.Act))
-    public static IEnumerable<AbstractModel> CombatSubModels(CombatState combatState)
-    {
-        return allModels;
+        return AllModels.Where(model => (model as IHookReceiver)!.ReceiveHooks(combatState));
     }
     
     

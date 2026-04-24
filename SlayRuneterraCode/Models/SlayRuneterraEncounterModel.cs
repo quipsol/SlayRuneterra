@@ -5,5 +5,5 @@ namespace SlayRuneterra.Models;
 
 public abstract class SlayRuneterraEncounterModel(RoomType roomType = RoomType.Monster) : CustomEncounterModel(roomType)
 {
-    protected override bool HasCustomBackground => false;
+    //protected override bool HasCustomBackground => false;
 }

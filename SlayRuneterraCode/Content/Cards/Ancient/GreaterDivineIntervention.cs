@@ -36,9 +36,9 @@ public class GreaterDivineIntervention() : SlayRuneterraCardModel(3, CardType.Sk
         foreach (var player in RunState!.Players)
         {
             if(player.Creature.IsAlive)
-                await PowerCmd.Apply<IntangiblePower>(player.Creature, DynamicVars[nameof(IntangiblePower)].BaseValue, Owner.Creature, this);
+                await PowerCmd.Apply<IntangiblePower>(choiceContext, player.Creature, DynamicVars[nameof(IntangiblePower)].BaseValue, Owner.Creature, this);
         }
-        await PowerCmd.Apply<DivineInterventionPower>(Owner.Creature, DynamicVars[nameof(DivineInterventionPower)].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<DivineInterventionPower>(choiceContext, Owner.Creature, DynamicVars[nameof(DivineInterventionPower)].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

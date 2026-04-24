@@ -24,7 +24,7 @@ public class ValorEnragePower : SlayRuneterraPowerModel
         if (creature.Monster is not Quinn || wasRemovalPrevented)
             return;
 
-        await PowerCmd.Apply<StrengthPower>(this.Owner, 3, this.Owner, null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(),this.Owner, 3, this.Owner, null);
         await PowerCmd.Remove(this);
     }
 }

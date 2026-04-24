@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Cards;
@@ -69,7 +70,7 @@ public class Poppy : SlayRuneterraMonsterModel
                     .WithAttackerFx(null, "event:/sfx/enemy/enemy_attacks/waterfall_giant/waterfall_giant_attack_kick")
                     .WithHitFx("vfx/vfx_attack_blunt")
                     .Execute(null);
-        await PowerCmd.Apply<WeakPower>(targets, HammerShockWeakAmount, this.Creature, null);
+        await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, HammerShockWeakAmount, this.Creature, null);
     }
     
     private async Task PerformIronAmbassador(IReadOnlyList<Creature> targets)
@@ -87,7 +88,7 @@ public class Poppy : SlayRuneterraMonsterModel
         //await CreatureCmd.TriggerAnim(poppy.Creature, "Cast", 0.5f);
         //SfxCmd.Play(poppy.AttackSfx);
         //VfxCmd.PlayOnCreatureCenters((IEnumerable<Creature>) targets, "vfx/vfx_slime_impact");
-        await PowerCmd.Apply<StrengthPower>(Creature, SteadfastPresenceStrength, Creature, null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, SteadfastPresenceStrength, Creature, null);
         await CreatureCmd.GainBlock(this.Creature, new BlockVar(SteadfastPresenceBlock, ValueProp.Move), null);
     }
     
@@ -102,7 +103,7 @@ public class Poppy : SlayRuneterraMonsterModel
                     .WithAttackerFx(null, "event:/sfx/enemy/enemy_attacks/waterfall_giant/waterfall_giant_attack_kick")
                     .WithHitFx("vfx/vfx_attack_blunt")
                     .Execute(null);
-        await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Draw, KeepersVerdictDazedCount, false);
+        await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Draw, KeepersVerdictDazedCount, null);
     }
 
 
@@ -112,6 +113,6 @@ public class Poppy : SlayRuneterraMonsterModel
 
     public override async Task AfterAddedToRoom()
     {
-        await PowerCmd.Apply<HardenedShellPower>(Creature, 20m, Creature, null);
+        await PowerCmd.Apply<HardenedShellPower>(new ThrowingPlayerChoiceContext(), Creature, 20m, Creature, null);
     }
 }

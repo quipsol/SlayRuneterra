@@ -1,6 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
@@ -11,8 +12,8 @@ namespace SlayRuneterra.Content.Monsters;
 
 public class VanguardCharger : SlayRuneterraMonsterModel
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 34, 32);
-    public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 36, 34);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 30, 28);
+    public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 32, 30);
  
     protected override string VisualsPath => "res://SlayRuneterra/scenes/creature_visuals/demacia_act/vanguard_charger.tscn";
     
@@ -47,6 +48,6 @@ public class VanguardCharger : SlayRuneterraMonsterModel
 
     public override async Task AfterAddedToRoom()
     {
-        await PowerCmd.Apply<VanguardChargerPower>(this.Creature, 1, this.Creature, null);
+        await PowerCmd.Apply<VanguardChargerPower>(new ThrowingPlayerChoiceContext(), this.Creature, 1, this.Creature, null);
     }
 }

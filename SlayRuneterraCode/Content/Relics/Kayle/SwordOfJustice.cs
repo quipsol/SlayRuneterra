@@ -26,6 +26,6 @@ public class SwordOfJustice : SlayRuneterraRelicModel
     {
         if (cardPlay.Card.Type is not CardType.Attack)
             return;
-        await PowerCmd.Apply<SwordOfJusticeStrengthPower>(Owner.Creature, DynamicVars[nameof(SwordOfJusticeStrengthPower)].BaseValue, Owner.Creature, null);
+        await PowerCmd.Apply<SwordOfJusticeStrengthPower>(context, Owner.Creature, DynamicVars[nameof(SwordOfJusticeStrengthPower)].BaseValue, Owner.Creature, null);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using MegaCrit.Sts2.Core.Achievements;
 using MegaCrit.Sts2.Core.Models;
+using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Patches;
 
@@ -11,6 +12,6 @@ public class SkipModdedActAchievementPatch
 {
     public static bool Prefix(ActModel act)
     {
-        return act is not Content.Acts.Demacia;
+        return act is not CustomActModel;
     }
 }

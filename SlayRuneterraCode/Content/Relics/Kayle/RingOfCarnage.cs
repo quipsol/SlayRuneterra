@@ -34,7 +34,7 @@ public class RingOfCarnage : SlayRuneterraRelicModel
         return Task.CompletedTask;
     }
 
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, ICombatState combatState)
     {
         if (side != Owner.Creature.Side)
             return;

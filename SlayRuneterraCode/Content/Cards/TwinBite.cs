@@ -30,8 +30,8 @@ public class TwinBite() : SlayRuneterraCardModel(1, CardType.Attack, CardRarity.
                     .Targeting(play.Target!)
                     .WithHitFx("vfx/vfx_attack_slash")
                     .Execute(choiceContext);
-        await PowerCmd.Apply<WeakPower>(play.Target!, DynamicVars.Weak.BaseValue, Owner.Creature, this);
-        await PowerCmd.Apply<VulnerablePower>(play.Target!, DynamicVars.Vulnerable.BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<WeakPower>(choiceContext, play.Target!, DynamicVars.Weak.BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<VulnerablePower>(choiceContext, play.Target!, DynamicVars.Vulnerable.BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

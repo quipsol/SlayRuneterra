@@ -53,7 +53,7 @@ public class PetriciteClump() : SlayRuneterraRelicModel
         return false;
     }
     
-    public override Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override Task AfterSideTurnStart(CombatSide side, ICombatState combatState)
     {
         _usedThisRound = false;
         return Task.CompletedTask;

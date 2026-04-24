@@ -1,6 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -70,7 +71,7 @@ public class Quinn : SlayRuneterraMonsterModel
     private async Task PerformPrepare(IReadOnlyList<Creature> targets)
     {
         await CreatureCmd.GainBlock(this.Creature, new BlockVar(PrepareBlock, ValueProp.Move), null);
-        await PowerCmd.Apply<VulnerablePower>(targets, PrepareVulnerable, this.Creature, null);
+        await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), targets, PrepareVulnerable, this.Creature, null);
     }
 
 
@@ -80,7 +81,7 @@ public class Quinn : SlayRuneterraMonsterModel
     
     public override async Task AfterAddedToRoom()
     {
-        await PowerCmd.Apply<QuinnEnragePower>(this.Creature, 1, this.Creature, null);
+        await PowerCmd.Apply<QuinnEnragePower>(new ThrowingPlayerChoiceContext(), this.Creature, 1, this.Creature, null);
     }
     
     

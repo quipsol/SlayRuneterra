@@ -1,6 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
@@ -20,36 +21,24 @@ public class SilverwingVanguard: SlayRuneterraMonsterModel
     #region MoveStateMachine
     
     private const string WEAK = "WEAK";
-    private const string VULNERABLE = "VULNERABLE";
     private const string ATTACK = "ATTACK";
-    private const string WEAK_OR_VULNERABLE = "WEAK_OR_VULNERABLE";
     private int AttackDamage => 2;
-    private int AttackHits => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
-    private int FlutterStacks => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int AttackHits => 5;
+    private int FlutterStacks => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 2);
     
-    
-    private bool _lastDebuffWeak = false;
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
         var states = new List<MonsterState>();
         MoveState weakState = new MoveState(WEAK, Weak, new DebuffIntent());
-        MoveState vulnerableState = new MoveState(VULNERABLE, Vulnerable, new DebuffIntent());
         MoveState attackState = new MoveState(ATTACK, Attack, new MultiAttackIntent(AttackDamage, AttackHits));
         
-        // Replace this with a true random logic once I understand Conditional Branches more
-        ConditionalBranchState weakOrVulnerableState = new ConditionalBranchState(WEAK_OR_VULNERABLE);
-        weakOrVulnerableState.AddState(weakState, () => !_lastDebuffWeak);
-        weakOrVulnerableState.AddState(vulnerableState, () => _lastDebuffWeak);
         
-        attackState.FollowUpState = weakOrVulnerableState;
+        attackState.FollowUpState = weakState;
         weakState.FollowUpState = attackState;
-        vulnerableState.FollowUpState = attackState;
         states.Add(attackState);
         states.Add(weakState);
-        states.Add(vulnerableState);
-        states.Add(weakOrVulnerableState);
         
-        return new MonsterMoveStateMachine(states, weakOrVulnerableState);
+        return new MonsterMoveStateMachine(states, weakState);
     }
     
     #region State Methods
@@ -67,14 +56,7 @@ public class SilverwingVanguard: SlayRuneterraMonsterModel
 
     private async Task Weak(IReadOnlyList<Creature> targets)
     {
-        await PowerCmd.Apply<WeakPower>(targets, 2, this.Creature, null);
-        _lastDebuffWeak = true;
-    }
-    
-    private async Task Vulnerable(IReadOnlyList<Creature> targets)
-    {
-        await PowerCmd.Apply<VulnerablePower>(targets, 2, this.Creature, null);
-        _lastDebuffWeak = false;
+        await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, 2, this.Creature, null);
     }
     
     #endregion State Methods
@@ -83,6 +65,6 @@ public class SilverwingVanguard: SlayRuneterraMonsterModel
     
     public override async Task AfterAddedToRoom()
     {
-        await PowerCmd.Apply<DefinitelyNotFlutterPower>(this.Creature, FlutterStacks, this.Creature, null);
+        await PowerCmd.Apply<DefinitelyNotFlutterPower>(new ThrowingPlayerChoiceContext(), this.Creature, FlutterStacks, this.Creature, null);
     }
 }

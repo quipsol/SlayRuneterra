@@ -38,16 +38,16 @@ public class MyGrandFinale() : SlayRuneterraCardModel(1, CardType.Attack, CardRa
         NCombatRoom? instance = NCombatRoom.Instance;
         if (instance is not null)
             instance.CombatVfxContainer.AddChildSafely((Godot.Node) func());
-        return;
+        
         SfxCmd.Play("event:/sfx/characters/silent/silent_dagger_spray");
         AttackCommand attackCommand = await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
                     .WithHitCount(2)
                     .FromCard(this)
-                    .TargetingAllOpponents(CombatState)
+                    .TargetingAllOpponents(CombatState!)
                     .WithAttackerFx(() => NGrandFinaleVfx.Create(base.Owner.Creature, new Color("#ff0000"), goingRight: true))
                     .BeforeDamage(delegate
                                 {
-                                    IReadOnlyList<Creature> hittableEnemies = base.CombatState.HittableEnemies;
+                                    IReadOnlyList<Creature> hittableEnemies = base.CombatState!.HittableEnemies;
                                     foreach (Creature item in hittableEnemies)
                                     {
                                         NDaggerSprayImpactVfx child = NDaggerSprayImpactVfx.Create(item, new Color("#000000"), goingRight: true)!;

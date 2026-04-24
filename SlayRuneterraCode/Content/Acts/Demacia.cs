@@ -1,4 +1,5 @@
-﻿using Godot;
+﻿using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Map;
@@ -6,6 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Timeline.Epochs;
 using MegaCrit.Sts2.Core.Unlocks;
 using SlayRuneterra.Content.Encounters.Elite;
@@ -15,31 +17,37 @@ using SlayRuneterra.Content.Encounters.Normal;
 using SlayRuneterra.Content.Encounters.Weak;
 using SlayRuneterra.Content.Events.DemaciaAct;
 using SlayRuneterra.Models;
-using LostWisp = MegaCrit.Sts2.Core.Models.Events.LostWisp;
+using SlayRuneterra.Utils.Tests;
+using ManualBackgroundAssets = SlayRuneterra.Utils.Tests.ManualBackgroundAssets;
 
 namespace SlayRuneterra.Content.Acts;
 
-public sealed class Demacia : CustomActModel
+public sealed class Demacia : SlayRuneterraActModel
 {
-    public override string? ChestAtlasPath => "res://SlayRuneterra/animations/backgrounds/treasure_room/test_anim.tscn";
-    
-    public override string ChestSpineResourcePath => "res://animations/backgrounds/treasure_room/chest_room_act_2_skel_data.tres";
-    // No idea how to handle animations yet
-    //public override string ChestSpineResourcePath => "res://SlayRuneterra/animations/backgrounds/treasure_room/chest_room_demacia_skel_data.tres";
-    
-    
-    public override string CustomBackgroundScenePath => "res://SlayRuneterra/scenes/acts/demacia/demacia_background.tscn";
-    public override string CustomMapTopBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_top_demacia.png";
-    public override string CustomMapMidBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_middle_demacia.png";
-    public override string CustomMapBotBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_bottom_demacia.png";
-    public override string CustomRestSiteBackgroundPath => "res://SlayRuneterra/scenes/acts/demacia/demacia_rest_site.tscn";
 
 
-    public override List<string> ForegroundLayerPaths =>
+    #region Assets
+    
+    public override string? CustomChestScene => "res://SlayRuneterra/animations/backgrounds/treasure_room/test_anim.tscn";
+
+
+    public override BackgroundAssets CustomGenerateBackgroundAssets(ActModel parentAct, Rng rng)
+    {
+        return  new ManualBackgroundAssets(GetBackgroundAssetPaths(rng));
+    }
+    
+    protected override string CustomBackgroundScenePath => "res://SlayRuneterra/scenes/acts/demacia/demacia_background.tscn";
+    //protected override string CustomBackgroundScenePath => "res://BaseLib/scenes/dynamic_background.tscn";
+    protected override string CustomMapTopBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_top_demacia.png";
+    protected override string CustomMapMidBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_middle_demacia.png";
+    protected override string CustomMapBotBgPath => "res://SlayRuneterra/images/acts/demacia/map/map_bottom_demacia.png";
+    protected override string CustomRestSiteBackgroundPath => "res://SlayRuneterra/scenes/acts/demacia/demacia_rest_site.tscn";
+
+
+    public List<string> ForegroundLayerPaths =>
                 ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_fg_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_fg_b.tscn"];
-
-    // Is Dictionary for keys to allow for 
-    public override List<List<string>> BackgroundLayerPaths => 
+    
+    public List<List<string>> BackgroundLayerPaths => 
     [
                 ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_00_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_00_b.tscn"],
                 ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_01_a.tscn", "res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_01_b.tscn"],
@@ -49,7 +57,7 @@ public sealed class Demacia : CustomActModel
                 ["res://SlayRuneterra/scenes/acts/demacia/layers/demacia_bg_05_a.tscn"],
     ];
 
-    public override (string, List<string>, string?) GetBackgroundAssetPaths(Rng rng)
+    public (string, List<string>, string?) GetBackgroundAssetPaths(Rng rng)
     {
         bool daytime = rng.NextBool();
         string foreground = ForegroundLayerPaths[daytime ? 0 : 1];
@@ -67,24 +75,13 @@ public sealed class Demacia : CustomActModel
         }
         return (CustomBackgroundScenePath, layers, foreground);
     }
+    
+    #endregion Assets
 
     public override Color MapTraveledColor => new Color("27221C");
     public override Color MapUntraveledColor => new Color("6E7750");
     public override Color MapBgColor => new Color("9B9562");
-
-    public override string AmbientSfx => "event:/sfx/ambience/act2_ambience";
-    public override string ChestOpenSfx => "event:/sfx/ui/treasure/treasure_act2";
-    public override string[] BgMusicOptions => ["event:/music/act2_a1_v2", "event:/music/act2_a2_v2"];
-    public override string[] MusicBankPaths => ["res://banks/desktop/act2_a1.bank", "res://banks/desktop/act2_a2.bank"];
-
-    protected override int BaseNumberOfRooms => 14;
-    protected override int NumberOfWeakEncounters => 3; // optional override
-
-
-
-    public override string ChestSpineSkinNameNormal => "act2";
-    public override string ChestSpineSkinNameStroke => "act2_stroke";
-
+    
     public override IEnumerable<EncounterModel> BossDiscoveryOrder =>
     [
                 ModelDb.Encounter<LuxBoss>(),
@@ -145,15 +142,11 @@ public sealed class Demacia : CustomActModel
 
                     ModelDb.Encounter<QuinnElite>(),
                     ModelDb.Encounter<PoppyElite>(),
-                    // ModelDb.Encounter<DecimillipedeElite>(),
-                    // ModelDb.Encounter<EntomancerElite>(),
-                    // ModelDb.Encounter<InfestedPrismsElite>(),
+                    ModelDb.Encounter<XinZhaoElite>(),
 
                     ModelDb.Encounter<GarenBoss>(),
                     ModelDb.Encounter<JarvanTheFourthBoss>(),
                     ModelDb.Encounter<LuxBoss>(),
-                    // ModelDb.Encounter<KnowledgeDemonBoss>(),
-                    // ModelDb.Encounter<TheInsatiableBoss>(),
         ];
     }
 
@@ -170,12 +163,27 @@ public sealed class Demacia : CustomActModel
 
     protected override void ApplyActDiscoveryOrderModifications(UnlockState unlockState)
     {
+        
     }
+
 
     public override MapPointTypeCounts GetMapPointTypes(Rng mapRng)
     {
         int restCount = mapRng.NextGaussianInt(6, 1, 6, 7);
         int unknownCount = MapPointTypeCounts.StandardRandomUnknownCount(mapRng) - 1;
         return new MapPointTypeCounts(unknownCount, restCount);
+    }
+
+    
+    public override Task BeforeCombatStart()
+    {
+        MainFile.Logger.Warn("======= Demacia - Before Combat Start =======");
+        return Task.CompletedTask;
+    }
+    
+    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, ICombatState combatState)
+    {
+        MainFile.Logger.Warn("======= Demacia - Before Side Turn Start =======");
+        return Task.CompletedTask;
     }
 }

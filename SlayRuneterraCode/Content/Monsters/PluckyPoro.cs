@@ -1,6 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
@@ -49,7 +50,7 @@ public class PluckyPoro : SlayRuneterraMonsterModel
     
     private async Task PerformBuff(IReadOnlyList<Creature> targets)
     {
-        await PowerCmd.Apply<StrengthPower>(this.Creature, BuffStrengthAmount, this.Creature, null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), this.Creature, BuffStrengthAmount, this.Creature, null);
     }
 
 

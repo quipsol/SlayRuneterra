@@ -41,7 +41,7 @@ public class IlluminationPower : SlayRuneterraPowerModel
         return Task.CompletedTask;
     }
 
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, ICombatState combatState)
     {
         // if (side == this.Owner.Side)
         // {

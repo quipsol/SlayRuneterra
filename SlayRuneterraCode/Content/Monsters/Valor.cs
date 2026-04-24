@@ -1,6 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
@@ -26,7 +27,7 @@ public class Valor : SlayRuneterraMonsterModel
 
     private int GougeWeak => 2;
     private int GougeVulnerable => 2;
-    private int BlindAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 5);
+    private int BlindAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
     private int PeckDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int PeckHits => 4;
 
@@ -57,12 +58,13 @@ public class Valor : SlayRuneterraMonsterModel
 
     private async Task PerformGouge(IReadOnlyList<Creature> targets)
     {
-        await PowerCmd.Apply<WeakPower>(targets, GougeWeak, this.Creature, null);
-        await PowerCmd.Apply<VulnerablePower>(targets, GougeVulnerable, this.Creature, null);
+        // It is okay that Valor applies vulnerable because this is only used when Quinn is dead!!!
+        await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, GougeWeak, this.Creature, null);
+        await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), targets, GougeVulnerable, this.Creature, null);
     }
     private async Task PerformBlind(IReadOnlyList<Creature> targets)
     {
-        await PowerCmd.Apply<BlindPower>(targets, BlindAmount, this.Creature, null);
+        await PowerCmd.Apply<BlindPower>(new ThrowingPlayerChoiceContext(), targets, BlindAmount, this.Creature, null);
     }
 
     private async Task PerformPeck(IReadOnlyList<Creature> targets)
@@ -88,7 +90,7 @@ public class Valor : SlayRuneterraMonsterModel
 
     public override async Task AfterAddedToRoom()
     {
-         await PowerCmd.Apply<ValorEnragePower>(this.Creature, 1, this.Creature, null);
+         await PowerCmd.Apply<ValorEnragePower>(new ThrowingPlayerChoiceContext(), this.Creature, 1, this.Creature, null);
  
     }
 
