@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;

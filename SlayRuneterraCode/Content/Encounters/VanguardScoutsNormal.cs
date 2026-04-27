@@ -1,11 +1,10 @@
-﻿using BaseLib.Abstracts;
-using MegaCrit.Sts2.Core.Models;
+﻿using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 using SlayRuneterra.Content.Acts;
 using SlayRuneterra.Content.Monsters;
 using SlayRuneterra.Models;
 
-namespace SlayRuneterra.Content.Encounters.Normal;
+namespace SlayRuneterra.Content.Encounters;
 
 public class VanguardScoutsNormal(): SlayRuneterraEncounterModel(RoomType.Monster)
 {

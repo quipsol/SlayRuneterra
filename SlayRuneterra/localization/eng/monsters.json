@@ -7,6 +7,7 @@
   "SLAYRUNETERRA-QUINN.name": "Quinn",
   "SLAYRUNETERRA-VALOR.name": "Valor",
   "SLAYRUNETERRA-POPPY.name": "Poppy",
+  "SLAYRUNETERRA-XIN_ZHAO.name": "Xin Zhao",
   
   "SLAYRUNETERRA-VANGUARD_CHARGER.name": "Vanguard Charger",
   "SLAYRUNETERRA-VANGUARD_DEFENDER.name": "Vanguard Defender",
@@ -14,5 +15,9 @@
   "SLAYRUNETERRA-VANGUARD_RANGER.name": "Vanguard Ranger",
   "SLAYRUNETERRA-SILVERWING_VANGUARD.name": "Silverwing Vanguard",
   "SLAYRUNETERRA-GREATHORN_ELK.name": "Greathorn Elk",
-  "SLAYRUNETERRA-PLUCKY_PORO.name": "Plucky Poro"
+  "SLAYRUNETERRA-PLUCKY_PORO.name": "Plucky Poro",
+  "SLAYRUNETERRA-PETRICITE_GOLEM.name": "Petricite Golem",
+  "SLAYRUNETERRA-PETRICITE_CRUSHER.name": "Petricite Crusher",
+  "SLAYRUNETERRA-WASP_NEST.name": "Wasp Nest",
+  "SLAYRUNETERRA-WASP.name": "Wasp"
 }

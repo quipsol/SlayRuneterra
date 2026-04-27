@@ -2,9 +2,11 @@
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
@@ -104,6 +106,17 @@ public class Poppy : SlayRuneterraMonsterModel
                     .WithHitFx("vfx/vfx_attack_blunt")
                     .Execute(null);
         await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Draw, KeepersVerdictDazedCount, null);
+        // TODO: Do I need to shuffle here?
+        // for (int i = 0; i < KeepersVerdictDazedCount; ++i)
+        // {
+        //     CardModel card = (CardModel) CombatState.CreateCard<Dazed>(targets);
+        //     CardPileAddResult[] cardPileAddResultArray = statusCards;
+        //     int index = i;
+        //     cardPileAddResultArray[index] = await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Draw, (Player) null, CardPilePosition.Random);
+        //     cardPileAddResultArray = (CardPileAddResult[]) null;
+        // }
+        // CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>) statusCards);
+        await Cmd.Wait(0.5f);
     }
 
 

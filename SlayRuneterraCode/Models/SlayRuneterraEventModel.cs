@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace SlayRuneterra.Models;
 
-public abstract class SlayRuneterraEventModel(bool autoAdd = false) : CustomEventModel(autoAdd)
+public abstract class SlayRuneterraEventModel(bool autoAdd = true) : CustomEventModel(autoAdd)
 {
     protected string OptionKey(string pageName, string optionName)
     {

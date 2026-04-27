@@ -16,6 +16,9 @@
   "SLAYRUNETERRA-GREATER_DIVINE_INTERVENTION.description": "ALL allies gain {IntangiblePower:diff()} [gold]Intangible[/gold].\nAt the beginning of your next turn, deal {DivineInterventionPower:diff()} damage to ALL enemies.",
 
   "SLAYRUNETERRA-MY_GRAND_FINALE.title": "Dagger Spray???",
-  "SLAYRUNETERRA-MY_GRAND_FINALE.description": "Test"
-  
+  "SLAYRUNETERRA-MY_GRAND_FINALE.description": "Test",
+
+
+  "SLAYRUNETERRA-SORAKAS_COMPASSION.title": "Soraka's Compassion",
+  "SLAYRUNETERRA-SORAKAS_COMPASSION.description": "Heal {HpVar:diff()} HP"
 }

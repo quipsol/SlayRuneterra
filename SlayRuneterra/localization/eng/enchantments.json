@@ -1,0 +1,5 @@
+﻿{
+  "SLAYRUNETERRA-POTENTIAL.title": "Potential",
+  "SLAYRUNETERRA-POTENTIAL.description": "This card can be upgraded [blue]{Amount}[/blue] additional {Amount:plural:time|times}.",
+  "SLAYRUNETERRA-POTENTIAL.extraCardText": ""
+}

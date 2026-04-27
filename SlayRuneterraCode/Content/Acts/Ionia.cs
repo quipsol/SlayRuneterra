@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Timeline.Epochs;
 using MegaCrit.Sts2.Core.Unlocks;
 using SlayRuneterra.Content.Ancients;
-using SlayRuneterra.Content.Encounters.Boss;
+using SlayRuneterra.Content.Encounters;
 using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Acts;

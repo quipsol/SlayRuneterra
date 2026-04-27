@@ -1,5 +1,8 @@
 ﻿using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Models.Powers;
+using SlayRuneterra.Content.Acts;
 using SlayRuneterra.Content.Cards;
 using SlayRuneterra.Content.Relics.Kayle;
 

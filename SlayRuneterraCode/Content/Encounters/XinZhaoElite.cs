@@ -4,7 +4,7 @@ using SlayRuneterra.Content.Acts;
 using SlayRuneterra.Content.Monsters;
 using SlayRuneterra.Models;
 
-namespace SlayRuneterra.Content.Encounters.Elite;
+namespace SlayRuneterra.Content.Encounters;
 
 public class XinZhaoElite() : SlayRuneterraEncounterModel(RoomType.Elite)
 {

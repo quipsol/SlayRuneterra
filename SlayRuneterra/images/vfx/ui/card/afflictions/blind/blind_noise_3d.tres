@@ -1,0 +1,17 @@
+[gd_resource type="NoiseTexture3D" load_steps=3 format=3 uid="uid://de5rjdrybby6q"]
+
+[sub_resource type="Gradient" id="Gradient_2pxnd"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_83hr4"]
+frequency = 0.0333
+fractal_octaves = 2
+fractal_lacunarity = 1.0
+fractal_gain = 1.11
+fractal_weighted_strength = 0.5
+metadata/_preview_in_3d_space_ = true
+
+[resource]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_83hr4")
+color_ramp = SubResource("Gradient_2pxnd")

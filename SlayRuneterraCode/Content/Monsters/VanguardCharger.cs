@@ -17,6 +17,7 @@ public class VanguardCharger : SlayRuneterraMonsterModel
  
     protected override string VisualsPath => "res://SlayRuneterra/scenes/creature_visuals/demacia_act/vanguard_charger.tscn";
     
+    
     #region MoveStateMachine
     
     private const string SINGLE = "SINGLE";

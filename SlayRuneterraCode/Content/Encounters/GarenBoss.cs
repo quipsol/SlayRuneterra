@@ -1,13 +1,11 @@
-﻿using BaseLib.Abstracts;
-using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+﻿using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
-using SlayRuneterra.Content.Acts;
 using SlayRuneterra.Content.Monsters;
 using SlayRuneterra.Models;
 
-namespace SlayRuneterra.Content.Encounters.Boss;
+namespace SlayRuneterra.Content.Encounters;
 
 public class GarenBoss() : SlayRuneterraEncounterModel(RoomType.Boss)
 {
@@ -16,7 +14,7 @@ public class GarenBoss() : SlayRuneterraEncounterModel(RoomType.Boss)
         return null;
     }
      
-    public override bool IsValidForAct(ActModel act) => act is Demacia;
+    public override bool IsValidForAct(ActModel act) => act is Acts.Demacia;
 
     public override string BossNodePath =>"res://images/map/placeholder/waterfall_giant_boss_icon";
     public override MegaSkeletonDataResource? BossNodeSpineResource => null;

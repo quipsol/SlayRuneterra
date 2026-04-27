@@ -24,22 +24,25 @@ public class Soraka : SlayRuneterraAncientModel
 
     public override bool IsValidForAct(ActModel act) => SlayRuneterraConfig.IsEnabled;
 
-    // On the first campfire you enter, heal yourself to full hp
+    
     protected override OptionPools MakeOptionPools => new(
                 MakePool(
-                            AncientOption<NeowsTorment>(),
-                            AncientOption<NeowsTalisman>(),
                             AncientOption<SmallCapsule>(),
-                            AncientOption<LargeCapsule>()
+                            AncientOption<LargeCapsule>(),
+                            AncientOption<GoldenPearl>(weight: 20),
+                            AncientOption<CursedPearl>(weight: 20),
+                            AncientOption<StoneHumidifier>(weight: 10)
                 ),
                 MakePool(
                             AncientOption<ArcaneScroll>(weight: 10),
-                            AncientOption<LeafyPoultice>(weight: 10),
-                            AncientOption<PrecariousShears>(weight: 10),
-                            AncientOption<GoldenPearl>(weight: 20)
+                            AncientOption<MassiveScroll>(weight: 10), // multiplayer only
+                            AncientOption<ScrollBoxes>(weight: 10),
+                            AncientOption<WingedBoots>(weight: 10),
+                            AncientOption<PhialHolster>(weight: 10),
+                            AncientOption<RejuvenationBead>()
                 ),
                 MakePool(
-                            AncientOption<Rejuvenate>()
+                            AncientOption<SorakasCompassionRelic>()
                 ));
     
     

@@ -10,7 +10,7 @@ namespace SlayRuneterra.Content.Relics.Soraka;
 
 
 [Pool(typeof(EventRelicPool))]
-public class Rejuvenate : SlayRuneterraRelicModel
+public class RejuvenationBead : SlayRuneterraRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 

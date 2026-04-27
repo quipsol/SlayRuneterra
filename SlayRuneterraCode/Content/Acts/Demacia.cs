@@ -10,12 +10,10 @@ using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Timeline.Epochs;
 using MegaCrit.Sts2.Core.Unlocks;
-using SlayRuneterra.Content.Encounters.Elite;
 using SlayRuneterra.Content.Ancients;
-using SlayRuneterra.Content.Encounters.Boss;
-using SlayRuneterra.Content.Encounters.Normal;
-using SlayRuneterra.Content.Encounters.Weak;
+using SlayRuneterra.Content.Encounters;
 using SlayRuneterra.Content.Events.DemaciaAct;
+using SlayRuneterra.Content.Monsters;
 using SlayRuneterra.Models;
 using SlayRuneterra.Utils.Tests;
 using ManualBackgroundAssets = SlayRuneterra.Utils.Tests.ManualBackgroundAssets;
@@ -128,6 +126,9 @@ public sealed class Demacia : SlayRuneterraActModel
                     ModelDb.Encounter<VanguardPatrolNormal>(),
                     ModelDb.Encounter<VanguardGuardsNormal>(),
                     ModelDb.Encounter<GreathornElkNormal>(),
+                    ModelDb.Encounter<PetriciteGolemNormal>(),
+                    ModelDb.Encounter<PetriciteCrusherNormal>(),
+                    ModelDb.Encounter<WaspNestNormal>(),
                     // ModelDb.Encounter<BowlbugsNormal>(),
                     // ModelDb.Encounter<ChompersNormal>(),
                     // ModelDb.Encounter<ExoskeletonsNormal>(),
@@ -157,14 +158,10 @@ public sealed class Demacia : SlayRuneterraActModel
         {
             list.Remove(ModelDb.AncientEvent<Orobas>());
         }
-
         return list;
     }
 
-    protected override void ApplyActDiscoveryOrderModifications(UnlockState unlockState)
-    {
-        
-    }
+    protected override void ApplyActDiscoveryOrderModifications(UnlockState unlockState) { }
 
 
     public override MapPointTypeCounts GetMapPointTypes(Rng mapRng)
@@ -173,17 +170,5 @@ public sealed class Demacia : SlayRuneterraActModel
         int unknownCount = MapPointTypeCounts.StandardRandomUnknownCount(mapRng) - 1;
         return new MapPointTypeCounts(unknownCount, restCount);
     }
-
     
-    public override Task BeforeCombatStart()
-    {
-        MainFile.Logger.Warn("======= Demacia - Before Combat Start =======");
-        return Task.CompletedTask;
-    }
-    
-    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, ICombatState combatState)
-    {
-        MainFile.Logger.Warn("======= Demacia - Before Side Turn Start =======");
-        return Task.CompletedTask;
-    }
 }

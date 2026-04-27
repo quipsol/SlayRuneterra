@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://curj0vjjm4wpm"]
+
+[node name="Encounter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="wasp1" type="Marker2D" parent="."]
+position = Vector2(1788, 331)
+
+[node name="wasp2" type="Marker2D" parent="."]
+position = Vector2(1632, 527)
+
+[node name="wasp3" type="Marker2D" parent="."]
+position = Vector2(1430, 681)
+
+[node name="wasp4" type="Marker2D" parent="."]
+position = Vector2(1338, 395)
+
+[node name="wasp5" type="Marker2D" parent="."]
+position = Vector2(1156, 561)
+
+[node name="wasp_nest" type="Marker2D" parent="."]
+position = Vector2(1969, 741)

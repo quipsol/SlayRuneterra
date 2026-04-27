@@ -1,7 +1,7 @@
 {
   "SLAYRUNETERRA-VANGUARD_CHARGER_POWER.title": "Brothers in Arms",
   "SLAYRUNETERRA-VANGUARD_CHARGER_POWER.description": "Gain [gold]Strength[/gold] whenever another Vanguard takes damage.",
-  "SLAYRUNETERRA-VANGUARD_CHARGER_POWER.smartDescription": "Gain {Amount} [gold]Strength[/gold] whenever another [blue]Vanguard[/blue] takes damage.",
+  "SLAYRUNETERRA-VANGUARD_CHARGER_POWER.smartDescription": "Gain {Amount} [gold]Strength[/gold] whenever {HasJarvanAlly:cond:| [blue]Jarvan IV[/blue] or} another [blue]Vanguard[/blue] takes damage from an attack.",
 
 
 
@@ -23,7 +23,7 @@
   "SLAYRUNETERRA-SUMMON_GALIO_POWER.title": "Beacon",
 
   "SLAYRUNETERRA-BLIND_POWER.description": "This round your cards are obfuscated.",
-  "SLAYRUNETERRA-BLIND_POWER.smartDescription": "Your cards are obfuscated.\nLasts for [blue]{Amount}[/blue] {Amount:cond>1?turns|turn}.",
+  "SLAYRUNETERRA-BLIND_POWER.smartDescription": "Your cards are obfuscated.\nLasts for [blue]{Amount}[/blue] {Amount:cond:>1?turns|turn}.",
   "SLAYRUNETERRA-BLIND_POWER.title": "Blind",
 
 
@@ -44,7 +44,11 @@
   "BASELIBA-CUSTOM_TEMPORARY_POWER_MODEL.DOWN.smartDescription": "Lose [blue]{Amount:abs()}[/blue] [gold]{TemporaryPowerTitle}[/gold] until the end of your {UntilEndOfOtherSideTurn:cond:|enemies }turn.{Repeat:cond:>0?\\nLasts for [blue]{Repeat:diff()}[/blue] additional {Repeat:plural:turn|turns}.|}",
 
 
-  "SLAYRUNETERRA-BETTER_BUFFER.description": "The first time you would take damage each turn, dont",
-  "SLAYRUNETERRA-BETTER_BUFFER.smartDescription": "The first time you would take damage each turn, dont",
-  "SLAYRUNETERRA-BETTER_BUFFER.title": "Buffern't"
+  "SLAYRUNETERRA-PETRICITE_POWER.title": "Petricite",
+  "SLAYRUNETERRA-PETRICITE_POWER.description": "Reduce the effectiveness of Debuffs and gain Strength when doing so",
+  "SLAYRUNETERRA-PETRICITE_POWER.smartDescription": "Reduce the Amount of any Debuff applied to you by [blue]{Amount:abs()}[/blue].\nIf a Debuff has been reduced gain [blue]{Amount:abs()}[/blue] Strength.",
+
+  "SLAYRUNETERRA-WASP_ENRAGE_POWER.title": "Enrage",
+  "SLAYRUNETERRA-WASP_ENRAGE_POWER.description": "[gold]Wasp[/gold] gains [gold]Strength[/gold] when [gold]Wasp Nest[/gold] reaches a certain HP amount.",
+  "SLAYRUNETERRA-WASP_ENRAGE_POWER.smartDescription": "[gold]Wasp[/gold] gains [blue]{StrengthPower:diff()}[/blue] [gold]Strength[/gold] when [gold]Wasp Nest[/gold] has [blue]{WNHealth:diff()}[/blue] health or less."
 }

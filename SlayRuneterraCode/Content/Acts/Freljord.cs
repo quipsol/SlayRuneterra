@@ -13,10 +13,7 @@ using MegaCrit.Sts2.Core.Timeline.Epochs;
 using MegaCrit.Sts2.Core.Unlocks;
 using MegaCrit.Sts2.Core.ValueProps;
 using SlayRuneterra.Content.Ancients;
-using SlayRuneterra.Content.Encounters.Boss;
-using SlayRuneterra.Content.Encounters.Elite;
-using SlayRuneterra.Content.Encounters.Normal;
-using SlayRuneterra.Content.Encounters.Weak;
+using SlayRuneterra.Content.Encounters;
 using SlayRuneterra.Content.Events.DemaciaAct;
 using SlayRuneterra.Models;
 

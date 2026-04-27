@@ -54,7 +54,17 @@
   "SLAYRUNETERRA-DRAGONS_DEN.pages.INITIAL.options.OBSERVE_TEETH.description": "Add a [gold]Twin Bite[/gold] to your Deck.",
   "SLAYRUNETERRA-DRAGONS_DEN.pages.INITIAL.options.OBSERVE_TEMPER.title": "Observe Temper",
   "SLAYRUNETERRA-DRAGONS_DEN.pages.INITIAL.options.OBSERVE_TEMPER.description":  "Add a [gold]Dragons Fury[/gold] to your Deck.",
-  "SLAYRUNETERRA-DRAGONS_DEN.pages.LEAVE.description": "You quietly leave the area."
+  "SLAYRUNETERRA-DRAGONS_DEN.pages.LEAVE.description": "You quietly leave the area.",
+  
+  "SLAYRUNETERRA-EXAMPLE_EVENT.title": "Example",
+  "SLAYRUNETERRA-EXAMPLE_EVENT.pages.INITIAL.description": "Pick your event",
+  "SLAYRUNETERRA-EXAMPLE_EVENT.pages.INITIAL.options.ENTER_BYRDONIS_NEST.title": "Enter Byrdonis Nest Event",
+  "SLAYRUNETERRA-EXAMPLE_EVENT.pages.INITIAL.options.ENTER_BYRDONIS_NEST.description": "uwu",
+  "SLAYRUNETERRA-EXAMPLE_EVENT.pages.INITIAL.options.ENTER_FAKE_MERCHANT.title": "Enter Fake Merchant",
+  "SLAYRUNETERRA-EXAMPLE_EVENT.pages.INITIAL.options.ENTER_FAKE_MERCHANT.description":  "owo",
+  "SLAYRUNETERRA-EXAMPLE_EVENT.pages.INITIAL.options.ENTER_RANDOM_EVENT.title": "Enter Random Event",
+  "SLAYRUNETERRA-EXAMPLE_EVENT.pages.INITIAL.options.ENTER_RANDOM_EVENT.description":  "OwO",
+  "SLAYRUNETERRA-EXAMPLE_EVENT.pages.LEAVE.description": "You shouldn't see this!"
 
 
 

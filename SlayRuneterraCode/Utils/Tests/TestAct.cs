@@ -5,9 +5,6 @@ using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Timeline.Epochs;
 using MegaCrit.Sts2.Core.Unlocks;
-using SlayRuneterra.Content.Encounters.Boss;
-using SlayRuneterra.Content.Encounters.Elite;
-using SlayRuneterra.Content.Encounters.Weak;
 
 namespace SlayRuneterra.Utils.Tests;
 //
