@@ -4,7 +4,6 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
-using SlayRuneterra.Utils.Content;
 
 namespace SlayRuneterra.Utils.Tests.CustomHookExample;
 
@@ -58,27 +57,19 @@ public class CustomHook
     {
         return Dispatch<IOnConsume>(cs, ctx, m => m.OnConsume(ctx, player, exampleParam));
     }
-    
-    public static int ModifyCardMaxUpgradeLevel(IRunState runState, CardModel card, int baseAmount)
-    {
-        return Aggregate<IModifyMaxUpgradeLevel, int>(runState, baseAmount, (m, current) => m.ModifyMaxUpgradeLevelHook(card, current));
-    }
-    public static int ModifyCardMaxUpgradeLevel(ICombatState combatState, CardModel card, int baseAmount)
-    {
-        return Aggregate<IModifyMaxUpgradeLevel, int>(combatState, baseAmount, (m, current) => m.ModifyMaxUpgradeLevelHook(card, current));
-    }
+
 }
 
 
 /*
 
-// YourModel.cs (card, relics, etc)
+// YourModel.cs (card, relics, etc.)
 public YourModel : YourAbstractModel, IOnConsume
 {
     public async Task IOnConsume(PlayerChoiceContext ctx, Player player, other things you need)
     {
         // custom actions that shoul happen for this model when things are consumed        
-        // i.e gain block or smth like that
+        // i.e. gain block or smth like that
     }
 }
 
