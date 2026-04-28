@@ -1,16 +1,10 @@
-﻿using System.Reflection;
-using System.Runtime.Serialization;
-using BaseLib.Abstracts;
+﻿using BaseLib.Abstracts;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
-using MegaCrit.Sts2.Core.Runs;
 using SlayRuneterra.Nodes;
-using SlayRuneterra.Utils;
-using SlayRuneterra.Utils.HookInterface;
 
 namespace SlayRuneterra.Models;
 
@@ -24,7 +18,7 @@ public abstract class CustomActModel : ActModel, ICustomModel
     public override Color MapUntraveledColor => new Color("6E7750");
     public override Color MapBgColor => new Color("9B9562");
 
-    public override string[] BgMusicOptions => ["event:/music/act3_a1_v2", "event:/music/act3_a2_v2"];
+    public override string[] BgMusicOptions => ["event:/music/act3_a1_v1", "event:/music/act3_a2_v1"];
     public override string[] MusicBankPaths => ["res://banks/desktop/act3_a1.bank", "res://banks/desktop/act3_a2.bank"];
     public override string AmbientSfx => "event:/sfx/ambience/act3_ambience";
 
@@ -60,10 +54,10 @@ public abstract class CustomActModel : ActModel, ICustomModel
     #region Patches
     
     [HarmonyPatch(typeof(ActModel), nameof(ActModel.BackgroundScenePath), MethodType.Getter)]
-    class CustomActBackgroundScenePath
+    private class CustomActBackgroundScenePath
     {
         [HarmonyPrefix]
-        static bool UseAltTexture(ActModel __instance, ref string? __result)
+        private static bool UseAltTexture(ActModel __instance, ref string? __result)
         {
             if (__instance is not CustomActModel customAct) return true;
             __result = customAct.CustomBackgroundScenePath;
@@ -72,10 +66,10 @@ public abstract class CustomActModel : ActModel, ICustomModel
     }
     
     [HarmonyPatch(typeof(ActModel), nameof(ActModel.MapTopBgPath), MethodType.Getter)]
-    class CustomActMapTopBgPath
+    private class CustomActMapTopBgPath
     {
         [HarmonyPrefix]
-        static bool UseAltTexture(ActModel __instance, ref string? __result)
+        private static bool UseAltTexture(ActModel __instance, ref string? __result)
         {
             if (__instance is not CustomActModel customAct) return true;
             __result = customAct.CustomMapTopBgPath;
@@ -84,10 +78,10 @@ public abstract class CustomActModel : ActModel, ICustomModel
     }
     
     [HarmonyPatch(typeof(ActModel), nameof(ActModel.MapMidBgPath), MethodType.Getter)]
-    class CustomActMapMidBgPath
+    private class CustomActMapMidBgPath
     {
         [HarmonyPrefix]
-        static bool UseAltTexture(ActModel __instance, ref string? __result)
+        private static bool UseAltTexture(ActModel __instance, ref string? __result)
         {
             if (__instance is not CustomActModel customAct) return true;
             __result = customAct.CustomMapMidBgPath;
@@ -96,10 +90,10 @@ public abstract class CustomActModel : ActModel, ICustomModel
     }
 
     [HarmonyPatch(typeof(ActModel), nameof(ActModel.MapBotBgPath), MethodType.Getter)]
-    class CustomActMapBotBgPath
+    private class CustomActMapBotBgPath
     {
         [HarmonyPrefix]
-        static bool UseAltTexture(ActModel __instance, ref string? __result)
+        private static bool UseAltTexture(ActModel __instance, ref string? __result)
         {
             if (__instance is not CustomActModel customAct) return true;
             __result = customAct.CustomMapBotBgPath;
@@ -108,10 +102,10 @@ public abstract class CustomActModel : ActModel, ICustomModel
     }
     
     [HarmonyPatch(typeof(ActModel), nameof(ActModel.RestSiteBackgroundPath), MethodType.Getter)]
-    class CustomActRestSiteBackgroundPath
+    private class CustomActRestSiteBackgroundPath
     {
         [HarmonyPrefix]
-        static bool UseAltTexture(ActModel __instance, ref string? __result)
+        private static bool UseAltTexture(ActModel __instance, ref string? __result)
         {
             if (__instance is not CustomActModel customAct) return true;
             __result = customAct.CustomRestSiteBackgroundPath;

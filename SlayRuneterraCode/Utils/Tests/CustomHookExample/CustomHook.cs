@@ -63,6 +63,10 @@ public class CustomHook
     {
         return Aggregate<IModifyMaxUpgradeLevel, int>(runState, baseAmount, (m, current) => m.ModifyMaxUpgradeLevelHook(card, current));
     }
+    public static int ModifyCardMaxUpgradeLevel(ICombatState combatState, CardModel card, int baseAmount)
+    {
+        return Aggregate<IModifyMaxUpgradeLevel, int>(combatState, baseAmount, (m, current) => m.ModifyMaxUpgradeLevelHook(card, current));
+    }
 }
 
 

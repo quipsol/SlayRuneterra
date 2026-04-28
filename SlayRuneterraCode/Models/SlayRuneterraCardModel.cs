@@ -23,26 +23,6 @@ public abstract class SlayRuneterraCardModel(int cost, CardType type, CardRarity
     //Uses card_portraits/card_name.png as image path. These should be smaller images.
     public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
     public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
-
-
-    private int ExtraUpgradeLevels = 0;
-    public void IncreaseMaxUpgradeLevel(int amount)
-    {
-        ExtraUpgradeLevels += amount;
-    }
-    
-    // [HarmonyPatch(typeof(CardModel), nameof(CardModel.MaxUpgradeLevel), MethodType.Getter)]
-    // public static class MaxUpgradeLevelPatch
-    // {
-    //     static void Postfix(CardModel __instance, ref int __result)
-    //     {
-    //         if (__instance is SlayRuneterraCardModel custom)
-    //         {
-    //             __result += custom.ExtraUpgradeLevels;
-    //         }
-    //     }
-    // }
-    
 }
 
 

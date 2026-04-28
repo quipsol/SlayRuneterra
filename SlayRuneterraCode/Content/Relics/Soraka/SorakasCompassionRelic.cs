@@ -15,7 +15,7 @@ namespace SlayRuneterra.Content.Relics.Soraka;
 public class SorakasCompassionRelic() : SlayRuneterraRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
-    
+    public override bool HasUponPickupEffect => true;
     protected override IEnumerable<IHoverTip> ExtraHoverTips  => HoverTipFactory.FromCardWithCardHoverTips<SorakasCompassion>().Concat(HoverTipFactory.FromEnchantment<Potential>());
 
     public override async Task AfterObtained()

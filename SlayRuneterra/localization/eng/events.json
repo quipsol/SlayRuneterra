@@ -64,8 +64,15 @@
   "SLAYRUNETERRA-EXAMPLE_EVENT.pages.INITIAL.options.ENTER_FAKE_MERCHANT.description":  "owo",
   "SLAYRUNETERRA-EXAMPLE_EVENT.pages.INITIAL.options.ENTER_RANDOM_EVENT.title": "Enter Random Event",
   "SLAYRUNETERRA-EXAMPLE_EVENT.pages.INITIAL.options.ENTER_RANDOM_EVENT.description":  "OwO",
-  "SLAYRUNETERRA-EXAMPLE_EVENT.pages.LEAVE.description": "You shouldn't see this!"
+  "SLAYRUNETERRA-EXAMPLE_EVENT.pages.LEAVE.description": "You shouldn't see this!",
 
-
-
+  "SLAYRUNETERRA-WANDERING_MAGE.title": "Wandering Mage",
+  "SLAYRUNETERRA-WANDERING_MAGE.pages.INITIAL.description": "On your travel you come across a hooded figure.\nThe figure introduces themselves as a mage.\n[jitter]Do you want to learn?[/jitter]",
+  "SLAYRUNETERRA-WANDERING_MAGE.pages.INITIAL.options.LEARN.title": "Learn",
+  "SLAYRUNETERRA-WANDERING_MAGE.pages.INITIAL.options.LEARN.description": "Choose a card to [gold]enchant[/gold] with [gold]Potential[/gold] [blue]{LearnPotential}[/blue].",
+  "SLAYRUNETERRA-WANDERING_MAGE.pages.INITIAL.options.PRIVATE_LESSON.title": "Private lesson",
+  "SLAYRUNETERRA-WANDERING_MAGE.pages.INITIAL.options.PRIVATE_LESSON.description": "Choose a card to [gold]enchant[/gold] with [gold]Potential[/gold] [blue]{PrivateLessonPotential}[/blue].",
+  "SLAYRUNETERRA-WANDERING_MAGE.pages.INITIAL.options.PRIVATE_LESSON_LOCKED.title": "Locked",
+  "SLAYRUNETERRA-WANDERING_MAGE.pages.INITIAL.options.PRIVATE_LESSON_LOCKED.description": "You don't carry enough [gold]gold[/gold].",
+  "SLAYRUNETERRA-WANDERING_MAGE.pages.LEAVE.description": "The mage says their goodbyes.\nRunes swirl and whoosh around them as their image fades into nothingness."
 }

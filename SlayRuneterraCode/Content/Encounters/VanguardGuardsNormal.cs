@@ -5,7 +5,7 @@ using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Encounters;
 
-public class VanguardGuardsNormal(): SlayRuneterraEncounterModel()
+public class VanguardGuardsNormal : SlayRuneterraEncounterModel
 {
     public override bool IsValidForAct(ActModel act) => act is Demacia;
     public override bool IsWeak => false;

@@ -39,10 +39,11 @@ public class Soraka : SlayRuneterraAncientModel
                             AncientOption<ScrollBoxes>(weight: 10),
                             AncientOption<WingedBoots>(weight: 10),
                             AncientOption<PhialHolster>(weight: 10),
-                            AncientOption<RejuvenationBead>()
+                            AncientOption<RejuvenationBead>(),
+                            AncientOption<SorakasCompassionRelic>()
                 ),
                 MakePool(
-                            AncientOption<SorakasCompassionRelic>()
+                            AncientOption<TimeCapsule>()
                 ));
     
     

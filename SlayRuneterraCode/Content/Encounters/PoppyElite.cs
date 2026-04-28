@@ -6,7 +6,7 @@ using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Encounters;
 
-public class PoppyElite(): SlayRuneterraEncounterModel(RoomType.Monster)
+public class PoppyElite : SlayRuneterraEncounterModel
 {
     public override bool IsValidForAct(ActModel act) => act is Demacia;
     public override bool IsWeak => false;

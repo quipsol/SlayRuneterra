@@ -6,7 +6,7 @@ using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Encounters;
 
-public class LostVanguardsWeak(): SlayRuneterraEncounterModel()
+public class LostVanguardsWeak : SlayRuneterraEncounterModel
 {
     protected override bool HasCustomBackground => false;
     public override bool IsValidForAct(ActModel act) => act is Demacia;
@@ -23,10 +23,12 @@ public class LostVanguardsWeak(): SlayRuneterraEncounterModel()
     
     protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters()
     {
+        var monster1 = Rng.NextItem(AllPossibleMonsters)!;
+        var monster2 = Rng.NextItem(AllPossibleMonsters.Where(c => c != monster1))!;
         return
         [
-                    (Rng.NextItem(AllPossibleMonsters)!.ToMutable(), null),
-                    (Rng.NextItem(AllPossibleMonsters)!.ToMutable(), null)
+                    (monster1.ToMutable(), null),
+                    (monster2.ToMutable(), null)
         ];
     }
 

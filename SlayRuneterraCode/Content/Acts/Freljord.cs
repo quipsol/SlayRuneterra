@@ -43,7 +43,6 @@ public class Freljord : SlayRuneterraActModel
     public override Color MapBgColor => new Color("9B9562");
     
     public override string AmbientSfx => "event:/sfx/ambience/act2_ambience";
-    public override string ChestOpenSfx  => "event:/sfx/ui/treasure/treasure_act2";
     public override string[] BgMusicOptions  => ["event:/music/act2_a1_v2", "event:/music/act2_a2_v2"];
     public override string[] MusicBankPaths => ["res://banks/desktop/act2_a1.bank", "res://banks/desktop/act2_a2.bank"];
     
@@ -54,6 +53,9 @@ public class Freljord : SlayRuneterraActModel
 
 
     public override string ChestSpineResourcePath => "res://animations/backgrounds/treasure_room/chest_room_act_2_skel_data.tres";
+    public override string ChestSpineSkinNameNormal => "act2";
+    public override string ChestSpineSkinNameStroke => "act2_stroke";
+    public override string ChestOpenSfx => "event:/sfx/ui/treasure/treasure_act2";
     
     public override IEnumerable<EncounterModel> BossDiscoveryOrder => 
     [

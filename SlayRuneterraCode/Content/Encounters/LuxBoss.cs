@@ -10,7 +10,7 @@ namespace SlayRuneterra.Content.Encounters;
 
 public class LuxBoss() : SlayRuneterraEncounterModel(RoomType.Boss)
 {
-    public override string? CustomScenePath => "res://SlayRuneterra/scenes/encounters/lux_boss.tscn";
+    public override string CustomScenePath => "res://SlayRuneterra/scenes/encounters/lux_boss.tscn";
     
     public override BackgroundAssets? CustomEncounterBackground(ActModel parentAct, Rng rng)
     {

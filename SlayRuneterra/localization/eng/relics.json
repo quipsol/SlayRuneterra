@@ -9,15 +9,22 @@
   "SLAYRUNETERRA-REJUVENATION_BEAD.flavor": "",
 
   "SLAYRUNETERRA-SORAKAS_COMPASSION_RELIC.title": "Soraka's Compassion",
-  "SLAYRUNETERRA-SORAKAS_COMPASSION_RELIC.description": "Add [blue]1[/blue] [gold]Soraka's Compassion[/gold] into your deck and enchant it with [gold]Potential[/gold] [blue]1[/blue]",
+  "SLAYRUNETERRA-SORAKAS_COMPASSION_RELIC.description": "Upon pickup, add [blue]1[/blue] [gold]Soraka's Compassion[/gold] into your deck and enchant it with [gold]Potential[/gold] [blue]1[/blue]",
+  "SLAYRUNETERRA-SORAKAS_COMPASSION_RELIC.eventDescription": "Add [blue]1[/blue] [gold]Soraka's Compassion[/gold] into your deck and enchant it with [gold]Potential[/gold] [blue]1[/blue]",
   "SLAYRUNETERRA-SORAKAS_COMPASSION_RELIC.flavor": "",
-  
 
+  "SLAYRUNETERRA-TIME_CAPSULE.title": "Time Capsule",
+  "SLAYRUNETERRA-TIME_CAPSULE.description": "Upon pickup, remove [blue]2[/blue] [red]Strike[/red] and [green]Defend[/green] from your deck.\nAfter each [gold]Elite[/gold] or [gold]Boss[/gold] combat, randomly add [blue]1[/blue] back.{CardTitles.StringValue:cond:\\n\\nCards in Stasis:\\n{}|}",
+  "SLAYRUNETERRA-TIME_CAPSULE.eventDescription": "Remove [blue]2[/blue] [red]Strike[/red] and [green]Defend[/green] from your deck. After each [gold]Elite[/gold] or [gold]Boss[/gold] combat, randomly add [blue]1[/blue] back.{CardTitles.StringValue:cond:\\n\\nCards in Stasis:\\n{}|}",
+  "SLAYRUNETERRA-TIME_CAPSULE.flavor": "",
+
+  
+  
+  
   "SLAYRUNETERRA-FLAIL_OF_JUSTICE.title": "Flail of Judgement",
   "SLAYRUNETERRA-FLAIL_OF_JUSTICE.description": "After you break an enemies [gold]Block[/gold], apply [blue]{WeakPower:diff()}[/blue] [gold]Weak[/gold] and [blue]{VulnerablePower:diff()}[/blue] [gold]Vulnerable[/gold].",
   "SLAYRUNETERRA-FLAIL_OF_JUSTICE.flavor": "",
-
-
+  
   "SLAYRUNETERRA-SPEAR_OF_JUSTICE.title": "Spear of Justice",
   "SLAYRUNETERRA-SPEAR_OF_JUSTICE.description": "At the beginning of combat gain [gold]Vigor[/gold] equal to twice the amount of [gold]Relics[/gold] you have.{IsEvent: ([blue]{CalculatedVigor:diff()}[/blue])|{HasOwner:\n\nGrants [blue]{CalculatedVigor:diff()}[/blue] [gold]Vigor[/gold].|}}",
   "SLAYRUNETERRA-SPEAR_OF_JUSTICE.flavor": "",

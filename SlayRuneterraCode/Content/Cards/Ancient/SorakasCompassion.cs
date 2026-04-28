@@ -33,6 +33,6 @@ public class SorakasCompassion() : SlayRuneterraCardModel(1, CardType.Skill, Car
 
     protected override void OnUpgrade()
     {
-        DynamicVars["HpVar"].UpgradeValueBy(1);
+        DynamicVars["HpVar"].UpgradeValueBy(3);
     }
 }

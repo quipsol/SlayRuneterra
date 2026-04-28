@@ -6,10 +6,10 @@ using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Encounters;
 
-public class QuinnElite(): SlayRuneterraEncounterModel(RoomType.Monster)
+public class QuinnElite : SlayRuneterraEncounterModel
 {
     
-    public override string? CustomScenePath => "res://SlayRuneterra/scenes/encounters/quinn_elite.tscn";
+    public override string CustomScenePath => "res://SlayRuneterra/scenes/encounters/quinn_elite.tscn";
     
     public override bool IsValidForAct(ActModel act) => act is Demacia;
     public override bool IsWeak => false;

@@ -1,12 +1,11 @@
 ﻿using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Rooms;
 using SlayRuneterra.Content.Acts;
 using SlayRuneterra.Content.Monsters;
 using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Encounters;
 
-public class GreathornElkNormal(): SlayRuneterraEncounterModel(RoomType.Monster)
+public class GreathornElkNormal: SlayRuneterraEncounterModel
 {
     public override bool IsValidForAct(ActModel act) => act is Demacia;
     public override bool IsWeak => false;

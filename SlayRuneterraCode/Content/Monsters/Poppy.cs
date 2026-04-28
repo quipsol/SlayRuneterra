@@ -105,17 +105,7 @@ public class Poppy : SlayRuneterraMonsterModel
                     .WithAttackerFx(null, "event:/sfx/enemy/enemy_attacks/waterfall_giant/waterfall_giant_attack_kick")
                     .WithHitFx("vfx/vfx_attack_blunt")
                     .Execute(null);
-        await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Draw, KeepersVerdictDazedCount, null);
-        // TODO: Do I need to shuffle here?
-        // for (int i = 0; i < KeepersVerdictDazedCount; ++i)
-        // {
-        //     CardModel card = (CardModel) CombatState.CreateCard<Dazed>(targets);
-        //     CardPileAddResult[] cardPileAddResultArray = statusCards;
-        //     int index = i;
-        //     cardPileAddResultArray[index] = await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Draw, (Player) null, CardPilePosition.Random);
-        //     cardPileAddResultArray = (CardPileAddResult[]) null;
-        // }
-        // CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>) statusCards);
+        await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Draw, KeepersVerdictDazedCount, null, CardPilePosition.Random);
         await Cmd.Wait(0.5f);
     }
 

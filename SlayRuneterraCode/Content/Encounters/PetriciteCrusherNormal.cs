@@ -5,7 +5,7 @@ using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Encounters;
 
-public class PetriciteCrusherNormal(): SlayRuneterraEncounterModel()
+public class PetriciteCrusherNormal : SlayRuneterraEncounterModel
 {
     public override bool IsValidForAct(ActModel act) => act is Demacia;
     public override bool IsWeak => false;

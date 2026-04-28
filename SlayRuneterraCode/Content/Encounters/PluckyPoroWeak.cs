@@ -6,7 +6,7 @@ using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Encounters;
 
-public class PluckyPoroWeak(): SlayRuneterraEncounterModel()
+public class PluckyPoroWeak : SlayRuneterraEncounterModel
 {
     protected override bool HasCustomBackground => false;
     public override bool IsValidForAct(ActModel act) => act is Demacia;
