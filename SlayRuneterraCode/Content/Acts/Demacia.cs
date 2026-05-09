@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Encounters;
 using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
@@ -16,7 +17,7 @@ using SlayRuneterra.Content.Events.DemaciaAct;
 using SlayRuneterra.Content.Monsters;
 using SlayRuneterra.Models;
 using SlayRuneterra.Utils.Tests;
-using ManualBackgroundAssets = SlayRuneterra.Utils.Tests.ManualBackgroundAssets;
+using ManualBackgroundAssets = SlayRuneterra.Utils.ManualBackgroundAssets;
 
 namespace SlayRuneterra.Content.Acts;
 
@@ -29,7 +30,7 @@ public sealed class Demacia : SlayRuneterraActModel
     public override string? CustomChestScene => "res://SlayRuneterra/animations/backgrounds/treasure_room/test_anim.tscn";
 
 
-    public override BackgroundAssets CustomGenerateBackgroundAssets(ActModel parentAct, Rng rng)
+    protected override BackgroundAssets CustomGenerateBackgroundAssets(Rng rng)
     {
         return  new ManualBackgroundAssets(GetBackgroundAssetPaths(rng));
     }

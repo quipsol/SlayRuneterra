@@ -1,7 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Models;
+﻿using MegaCrit.Sts2.Core.Models;
 
-namespace SlayRuneterra.Extensions;
+namespace SlayRuneterra.Utils.Extensions;
 
 public static class CardModelExtensions
 {
@@ -10,5 +9,3 @@ public static class CardModelExtensions
         return cards.OrderBy(card => card.Rarity).ThenBy(card => card.Id).ToList();
     }   
 }
-
-// return (from c in pileType.GetPile(player).Cards orderby c.Rarity, c.Id select c).ToList();

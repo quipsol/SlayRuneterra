@@ -54,13 +54,13 @@
         <!-- Add this if you dont want to use Nuget version -->
 <!--        <Reference Include="BaseLib">-->
 <!--            <HintPath>$(Sts2DataDir)/../mods/BaseLib/BaseLib.dll</HintPath>-->
-<!--            <Private>false</Private>-->
+<!--            <Private>true</Private>-->
 <!--        </Reference>-->
     </ItemGroup>
 
     <ItemGroup>
         <!-- Remove this if you dont want to use Nuget version -->
-        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.0.9" PrivateAssets="All" />
+        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.1.2" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*"/>
         <AdditionalFiles Include="SlayRuneterra/localization/**/*.json"/>
     </ItemGroup>
@@ -88,6 +88,7 @@
         <Folder Include="SlayRuneterra\images\powers\big\"/>
         <Folder Include="SlayRuneterra\images\relics\big\"/>
         <Folder Include="SlayRuneterra\scenes\cards\overlays\afflictions\" />
+        <Folder Include="SlayRuneterra\scenes\vfx\special\" />
     </ItemGroup>
 
     <ItemGroup>

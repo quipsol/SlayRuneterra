@@ -17,7 +17,7 @@ public class WaspEnragePower : SlayRuneterraPowerModel
 {
     public override PowerType Type => PowerType.None;
     public override PowerStackType StackType => PowerStackType.Single;
-    public override bool IsInstanced => true;
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(3), new DynamicVar("WNHealth", 100)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];

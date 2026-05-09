@@ -7,7 +7,6 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using SlayRuneterra.Content.Monsters;
-using SlayRuneterra.Extensions;
 using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Powers;

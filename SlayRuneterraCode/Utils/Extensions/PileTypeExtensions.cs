@@ -2,7 +2,7 @@
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
 
-namespace SlayRuneterra.Extensions;
+namespace SlayRuneterra.Utils.Extensions;
 
 public static class PileTypeExtensions
 {

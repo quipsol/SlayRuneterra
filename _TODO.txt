@@ -1,27 +1,4 @@
-﻿CustomActModel:
-1. Options to insert Acts
-    - possible act
-    - guaranteed act -> would be nice if BaseLib options offer a dropdown on which act is currently guaranteed
-2. Additional "Disable Act" option
-3. Fork BaseLib and implement CustomActModel there
-4. Create test mod for custom Acts to verify integrity and workflow
-5. Option to generate entire backgroundscene from code?
-
-I would imagine the BaseLib options to be:
-Possible Acts:
-    button that opens a window
-    window has list of all possible acts, sorted by 1, 2, 3
-    each act displays their name and an active/inactive checkbox
-Guaranteed Acts:
-    Three dropdowns (1 for each act)
-    chosen Act is guaranteed (overrides PossibleActs)
-    "None" option
-Full Spire replacement:
-    Replaces all act picking logic with your own
-    One dropdown for all options
-    "None" option
-
-Current Goals:
+﻿Current Goals:
 1. Make a fully working Act 1
 2. Make a fully working Ancient (Kayle and Soraka)
 3. Blind Creates State Divergence
@@ -50,13 +27,21 @@ General:
 5. Make sure only Ancients from this mod can be chosen
 6. Special Act Hazard System
 7. Clean up patch junk
+World runes to unlock/enter Act 4
 
 Demacia Act:
-1. Rework Blind to affect all cards
-2. Figure out how to replace treasure room background
+1. DONE! Rework Blind to affect all cards
+2. DONE! Figure out how to replace treasure room background
 3. more events (game has around 10 per act)
 4. Balancing
-5. Issue with Vulnerable being applied in the middle of the enemies turn
+5. DONE! Issue with Vulnerable being applied in the middle of the enemies turn (solution: don't do it)
 6. Clarity (i.e.: When does Garen hit hard)
 7. Rework enemy attack order. Example Garen: Garen has so much hp, it is unlikely he will be killed during his strong attacks.
    So there is no reason for him to DefendIntent before that, because the player likely must block anyway so they cant damage him.
+   
+   
+Random shit:
+Make a Riven card that can be upgraded multiple times
+the image changes to eventually create the full sword
+
+Events:

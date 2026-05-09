@@ -1,0 +1,13 @@
+﻿{
+  "SLAYRUNETERRA-TEST_EPOCH.title": "Test Epoch Title",
+  "SLAYRUNETERRA-TEST_EPOCH.description": "Test Epoch Description",
+  "SLAYRUNETERRA-TEST_EPOCH.unlock": "Test Epoch Unlock",
+  "SLAYRUNETERRA-TEST_EPOCH.unlockInfo": "Test Epoch Unlock Info",
+  "SLAYRUNETERRA-TEST_EPOCH.unlockText": "Test Epoch Unlock Text",
+
+  "SLAYRUNETERRA-UPRISING_EPOCH.title": "Mage Uprising",
+  "SLAYRUNETERRA-UPRISING_EPOCH.description": "Thanks to your rampage through Demacia, the mages are finally able to take back their lives",
+  "SLAYRUNETERRA-UPRISING_EPOCH.unlock": "Unlock a special Potion",
+  "SLAYRUNETERRA-UPRISING_EPOCH.unlockInfo": "Overthrow Demacia",
+  "SLAYRUNETERRA-UPRISING_EPOCH.unlockText": "Beat the Demacia Act"
+}

@@ -4,7 +4,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
-using SlayRuneterra.Extensions;
+using SlayRuneterra.Utils.Extensions;
 
 namespace SlayRuneterra.Models;
 

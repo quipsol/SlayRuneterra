@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://55fwd20w0wqu"]
+
+[ext_resource type="Texture2D" uid="uid://bof82sej1jejh" path="res://SlayRuneterra/images/vfx/shader_move_test_1.png" id="1_1dqrh"]
+
+[resource]
+atlas = ExtResource("1_1dqrh")
+region = Rect2(0, 0, 128, 128)

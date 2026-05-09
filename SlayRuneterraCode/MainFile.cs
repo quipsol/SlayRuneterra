@@ -4,8 +4,10 @@ using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Saves;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using SlayRuneterra.Models;
+using SlayRuneterra.Utils.Epochs;
 
 namespace SlayRuneterra;
 
@@ -26,6 +28,14 @@ public partial class MainFile : Node
 
         ModConfigRegistry.Register(ModId, new SlayRuneterraConfig());
         RegisterSavedPropertyTypes();
+        
+        MainFile.Logger.Info("Initializing all custom Epochs");
+        CustomEpochList.InsertCustomEpochModelsToDictionaries();
+        MainFile.Logger.Info("Custom Epochs:");
+        foreach (var customEpochModel in CustomEpochList.CustomEpochs)
+        {
+            MainFile.Logger.Info(customEpochModel.Id);
+        }
     }
     
     static void RegisterSavedPropertyTypes()

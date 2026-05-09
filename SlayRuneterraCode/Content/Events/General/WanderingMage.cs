@@ -38,7 +38,7 @@ public class WanderingMage : SlayRuneterraEventModel
         return
         [
                     Option(Learn, HoverTipFactory.FromEnchantment<Potential>(DynamicVars["LearnPotential"].IntValue)),
-                    AllowOrLockOption(() => Owner!.Gold > DynamicVars.Gold.BaseValue, PrivateLesson, 
+                    AllowOrLockOption(() => Owner!.Gold >= DynamicVars.Gold.BaseValue, PrivateLesson, 
                                 HoverTipFactory.FromEnchantment<Potential>(DynamicVars["PrivateLessonPotential"].IntValue))
         ];
     }

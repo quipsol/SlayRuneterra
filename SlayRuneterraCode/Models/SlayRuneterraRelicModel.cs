@@ -1,7 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using Godot;
-using SlayRuneterra.Extensions;
+using SlayRuneterra.Utils.Extensions;
 
 namespace SlayRuneterra.Models;
 

@@ -9,7 +9,6 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using SlayRuneterra.Content.Powers;
-using SlayRuneterra.Extensions;
 using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Cards;

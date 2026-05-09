@@ -1,4 +1,4 @@
-﻿namespace SlayRuneterra.Extensions;
+﻿namespace SlayRuneterra.Utils.Extensions;
 
 //Mostly utilities to get asset paths.
 public static class StringExtensions

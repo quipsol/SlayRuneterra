@@ -9,7 +9,6 @@ using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.ValueProps;
-using SlayRuneterra.Extensions;
 using SlayRuneterra.Models;
 
 namespace SlayRuneterra.Content.Powers;

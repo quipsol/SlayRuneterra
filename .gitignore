@@ -10,4 +10,5 @@ packages/
 .editorconfig
 *cs.uid
 *.user
-sts2.dll
+**/sts2.dll
+**/BaseLib.dll

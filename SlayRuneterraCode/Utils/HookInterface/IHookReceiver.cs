@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Screens.MainMenu;
 using MegaCrit.Sts2.Core.Nodes.Vfx.Utilities;
 using MegaCrit.Sts2.Core.Runs;
+using MegaCrit.Sts2.Core.Saves;
 using SlayRuneterra.Content.Events.DemaciaAct;
 using SlayRuneterra.Nodes;
 
@@ -47,7 +48,12 @@ public class ActModelPatch
     {
         if (_alreadyExecuted) return;
         _alreadyExecuted = true;
-        
+        var save = SaveManager.Instance.Progress;
+        MainFile.Logger.Info("Printing all Epochs in Progress Save");
+        foreach (var serializableEpoch in save.Epochs)
+        {
+            MainFile.Logger.Info($"Epoch Id: {serializableEpoch.Id}");
+        }
         MainFile.Logger.Info("Getting IHookReceiver implementations");
         List<Type?> hookReceivers = GetHookReceivers();
         foreach (Type? type in hookReceivers)

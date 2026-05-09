@@ -1,7 +1,6 @@
 ﻿using HarmonyLib;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
-using SlayRuneterra.Extensions;
 
 namespace SlayRuneterra.Models;
 

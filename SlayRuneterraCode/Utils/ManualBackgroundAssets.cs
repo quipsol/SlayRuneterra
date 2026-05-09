@@ -3,7 +3,7 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
 
-namespace SlayRuneterra.Utils.Tests;
+namespace SlayRuneterra.Utils;
 
 
 public class ManualBackgroundAssets : BackgroundAssets

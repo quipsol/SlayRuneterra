@@ -3,7 +3,7 @@ using SlayRuneterra.Utils.HookInterface;
 
 namespace SlayRuneterra.Models;
 
-public abstract class SlayRuneterraActModel : CustomActModel ,IHookReceiver
+public abstract class SlayRuneterraActModel(int actNumber = -1, bool autoAdd = true) : BaseLib.Abstracts.CustomActModel(actNumber, autoAdd) ,IHookReceiver
 {
     public override bool ShouldReceiveCombatHooks => true;
     
